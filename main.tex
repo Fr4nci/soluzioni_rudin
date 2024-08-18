@@ -76,7 +76,51 @@
 	sia $y \in \mathbb{R}$ un minorante di $A$. Allora si osserva che, per definizione, $\forall x \in A, y \leq x \implies -y \geq -x$ dunque $-A$ sarà limitato superiormente. Siccome $\forall E \subset \mathbb{R} \implies \exists \sup{E}, \inf{E} \in \mathbb{R}$ allora sappiamo che $-A$ avrà $\sup{(-A)} \in \mathbb{R}$ che denoteremo con $z = \sup{(-A)}$ e mostriamo la tesi, ovvero che $\sup{(-A)} = -\inf{A}$: dobbiamo mostrare che $-z$ è l'estremo inferiore. Per farlo si osserva che se $w > -z \implies z > -w$ dunque $-w$ non è un maggiorante di $-A$ dunque $\exists y=-x(x \in A \text{ per def.}) \in -A, z > y > -w \implies -z < -y < w$ ma siccome $-y=-(-x) = x \implies x < w$ dunque $w$ non è un minorante di $A$. Se invece supponiamo esista $w \in A : w < -z \implies -w > z$ ma $-w \in -A$ il che è assurdo siccome $\nexists w \in -A: w > \sup{(-A)}$. Dunque possiamo concludere che $\inf{A} = -\sup{(-A)}$ siccome abbiamo dimostrato che:
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 	\item $-z$ è un minorante di A;
-	\item $\forall x \in A, x > -z \implies x $ non è un minorante 
+	\item $\forall x > -z \implies x $ non è un minorante 
 \end{enumerate}
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Fissato $b>1$ \begin{enumerate}
+		\item Se $m, n, p, q \in \mathbb{Z}, n>0, q>0$ e $r=\frac{m}{n} = \frac{p}{q}$ mostrare che
+		$$
+			(b^m)^{\frac{1}{n}} = (b^p)^{\frac{1}{q}}
+ 		$$
+ 		Dunque ha senso definire $b^r = (b^m)^{\frac{1}{n}}$
+ 		\item Mostrare che $b^{r+s} = b^r b^s$ se $r, s \in \mathbb{Q}$
+ 		\item Se $x$ è reale, definiamo $B(x)$ come l'insieme di tutti i numeri $b^t$, dove $t$ è un numero razionale e $t \leq x$. Mostrare che
+ 		$$
+ 			b^r = \sup{B(r)}
+ 		$$
+ 		dunque ha senso definire
+ 		$$
+ 		b^x = \sup{B(x)}
+ 		$$
+ 		$\forall x \in \mathbb{R}$
+ 		\item Mostrare che $b^{x+y}=b^x b^y \, \forall x, y \in \mathbb{R}$
+	\end{enumerate}
+\end{enumerate}
+\begin{myproof}
+	Per mostrare (a) si osserva che, dal teorema 1.21, si deve avere che esistono due numeri reali $r_1$ e $r_2$ che identificano univocamente $(b^m)^{\frac{1}{n}}$ e $(b^p)^{\frac{1}{q}}$ rispettivamente. La tesi dunque si ottiene mostrando che $r_1 = r_2$. Si osserva che $(r_1)^n = b^m$ e $(r_2)^q = b^p$ e, siccome $r$ è razionale, possiamo scrivere che $m = rn$ e $p = rq$. Dunque
+	\begin{align*}
+		&(r_1)^n = b^{rn} & &(r_2)^q = b^{rq}
+	\end{align*}
+	ma elevando la prima eguaglianza da entrambi le parti per $q$ e la seconda per $n$ si ottiene che 
+	\begin{align*}
+		(r_1)^{nq} = b^{rnq}, (r_2)^{nq} = b^{nqr} \implies r_1 = r_2
+	\end{align*}
+	Per mostrare la (b) si osserva che se $r,s \in \mathbb{Q}$ allora si ha che $\exists m, n, p, q \in \mathbb{Z}: r=\frac{m}{n} \, \text{e} \, s = \frac{p}{q}$. Dunque
+	$$
+	b^{r+s} = b^{\frac{m}{n} + \frac{p}{q}} = b^{\frac{mq + np}{nq}}
+	$$
+	come prima sappiamo che esisteranno $r_1$ e $r_2$ univocamente determinati tali che $r_1 = b^{r+s}$ e $r_2 = b^{r} b^{s}$ e vogliamo mostrare che $r_1 = r_2$. Adesso si osserva che
+	$$
+		(b^{r+s})^{nq} = b^{mq+np} = (r_1)^{nq}
+	$$
+	e
+	$$
+		(b^{r} b^s)^{nq} = (b^{r})^{nq} (b^s)^{nq} = (b^{\frac{m}{n}})^{nq} (b^{\frac{p}{q}})^{nq} = b^{mq} b^{pn} = b^{mq+np}
+	$$
+	dunque $(b^{r+s})^{nq} = (b^r b^s)^{nq} \implies b^{r+s} = b^r b^s$. \\ Per mostrare la (c) bisogna innanzitutto osservare che, definendo $B(x)$ come sopra si ha che, dati $t, s \in B(x), t \leq s \implies b^t \leq b^s$. Se consideriamo $B(r)$ con $r$ razionale, allora si ha banalmente che $b^r \in B(r)$ e dev'essere l'estremo superiore: infatti, se consideriamo $t > r \implies b^t > b^r$, dunque $b^t > b^r \geq b^x \implies b^t > b^x \, \forall x \in B(r)$ dunque $t$ è un maggiorante di $B(r)$. Mostriamo che $\forall x < r: x$ non è un maggiorante: se per assurdo $\exists x < r: x$ è maggiorante, allora $\forall y \in B(r), y \leq \alpha < r \implies b^y < b^{\alpha} < b^t$ il che è assurdo siccome $r \in B(r)$. \\
+	Per mostrare la (d) si osserva che dobbiamo mostrare, per il punto precedente, che $\sup{B(x+y)} = \sup{B(x)}\sup{B(y)} = b^x b^y$. Per fare ciò si osserva che $\forall b^s \in B(x)$ e $\forall b^t \in B(y) \implies b^{s+t} \in B(x+y)$ siccome $s \leq x$ e $t \leq y$ dunque $s+t \leq x+y$ dunque $Z \subset B(x+y)$ con $Z = \{ b^z \in \mathbb{R}: \exists s \leq x, t \leq y: b^z = b^s b^t \}$ dunque $\sup{B(x)B(y)} \leq \sup{B(x+y)}$
 \end{myproof}
 \end{document}
