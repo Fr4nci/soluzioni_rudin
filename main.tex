@@ -1,0 +1,82 @@
+\documentclass{report}
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+\title{Soluzioni agli esercizi di \emph{Principles of Mathematical Analysis} di W. Rudin}
+\author{Francesco Sermi}
+\date{\today}
+
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\chapter{Capitolo 1}
+	\begin{enumerate}[label=\protect\circled{\arabic*}]
+		\item se $r$ è razionale ($r \neq 0$) e $x$ è razionale, provare che $r+x$ e $rx$ sono irrazionali
+		\begin{myproof}
+			Supponiamo per assurdo che $r \in \mathbb{Q}$ e $x$ sia irrazionale, mentre $r+x$ e $rx$ siano razionali. Allora, $r+x = \frac{m}{n}$ con $m, n \in \mathbb{Z}$. Ma siccome $r \in \mathbb{Q} \implies \exists p, q \in \mathbb{Z}: r = \frac{p}{q}$ e
+			$$
+				r + x = \frac{p}{q} + x = \frac{m}{n} \implies x = \frac{p}{q} - \frac{m}{n} = \frac{pn - qm}{qn} \implies x \in \mathbb{Q}
+			$$ 
+			il che è assurdo. \\
+			Procediamo con $rx$ alla solita maniera: se $rx \in \mathbb{Q} \implies \exists m, n \in \mathbb{Z}: rx = \frac{m}{n}$.  Ma allora, sapendo che $r = \frac{p}{q}$ con $p, q \in \mathbb{Z}$ in virtù della sua razionalità, $x = \frac{m}{nr} = \frac{mq}{np} \implies x \in \mathbb{Q}$ il che è nuovamente assurdo.
+		\end{myproof}
+\end{enumerate}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+		\item Provare che non esiste razionale $q$ tale che $q^2 = 12$
+\end{enumerate}
+		\begin{myproof}
+			si osservi il seguente lemma (di cui non daremo dimostrazione)
+			\mlenma{(di Euclide)}{Sia $n \in \mathbb{Z}$ e $n$ è primo.Se $n | ab$ e $a$ è coprimo con $b$ (o viceversa) allora $n | a \vee n | b$}
+		\noindent Supponiamo per assurdo che $\exists q \in \mathbb{Q} : q^2 = 12$. Data la razionalità di $q$ abbiamo che esistono $m, n \in \mathbb{Z}: q = \frac{m}{n}$ e $m$ e $n$ coprimi fra allora. Ciò implica che:
+		$$
+			\frac{m}{n} = \sqrt{12} \implies \frac{m^2}{n^2} = 12 \implies m^2 = 12n^2
+		$$
+		Questo vuol dire che $m$ è pari. Siccome $2 | m \implies \exists k \in \mathbb{Z} : m = 2k$ e dunque
+		$$
+		m^2 = (2k)^2 = 4k^2 = 12n^2 \implies k^2 = 3n^2
+		$$
+		Siccome il lato destro è divisibile per $3$ allora si deve avere che anche il lato sinistro è divisibile per $3$ e dunque, per il lemma di Euclide, si osserva che si deve avere che $3 | k \implies \exists q \in \mathbb{Z} : k = 3q$. Si deduce che
+		$$
+		k^2 = 9q^2 = 3n^2 \implies n^2 = 3q^2
+		$$
+		dunque $n^2$ è divisibile per $3$ e, sempre per il lemma di Euclide, $n$ è divisibile per $3$. Ma allora si giunge ad un assurdo siccome $m = 2k$ con $3 | k$ e $3 | n$ contro l'ipotesi di coprimità fra $m$ e $n$
+		\end{myproof}
+		Un'ulteriore dimostrazione poteva essere effettuata basandosi sul fatto che $\sqrt{12} = 2\sqrt{3}$ dunque, tramite l'esercizio 1, sappiamo che $rx$ è irrazionale se $x$ è irrazionale e $r$ razionale quindi la dimostrazione si riduceva a provare che $\sqrt{3}$ è irrazionale.
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+		\item Provare la seguente proposizione
+\end{enumerate}		
+		\mprop{Conseguenze degli assiomi moltiplicativi di cui gode il campo $\mathbb{R}$}{Gli assiomi moltiplicativi di cui gode $\mathbb{R}$ implicano le seguenti proprietà:
+		\begin{enumerate}[label=\protect\circled{\arabic*}]
+			\item Se $x \neq 0$ e $xy = xz \implies y=z$
+			\item Se $x \neq 0$ e $xy = x \implies y = 1$
+			\item Se $x \neq 0$ e $xy = 1 \implies y = x^{-1}$
+			\item Se $x \neq 0$ mostrare che $(x^{-1})^{-1} = x$
+		\end{enumerate}}
+	\begin{myproof}
+	per dimostrare la \circled{1}, banalmente, si ha che:
+	$$
+	y \stackrel{\text{esistenza di un elemento inverso e } x \neq 0}{=}  x x^{-1} y \stackrel{\text{prop. commutativa}}{=} xz x^{-1} \stackrel{\text{prop. commutativa}}{=} x x^{-1} z = z \implies y=z
+	$$
+	La \circled{2} segue direttamente dalla prima ponendo $z=1$, così come la \circled{3} ponendo $z=x^{-1}$. Per la \circled{4} si osserva che siccome $\forall x \neq 0, x x^{-1} = 1$ allora $\frac{1}{x} (\frac{1}{x})^{-1} = 1 \implies x \frac{1}{x} (\frac{1}{x})^{-1} = x \implies (\frac{1}{x})^{-1} = x$
+	\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia $E \subset A$ con $A$ insieme ordinato (totalmente? Il Rudin non ce lo fa sapere ma è abbastanza probabile). Supponiamo che $\alpha$ sia un minorante di $E$ e $\beta$ sia un maggiorante di $E$. Provare che $\alpha \leq \beta$
+\end{enumerate}
+\begin{myproof}
+	per definizione abbiamo che se $\alpha$ è un minorante allora $\forall x \in E, \alpha \leq x$ e se $\beta$ è un maggiorante allora $\forall x \in E, x \leq \beta$. Per transitività si ha che $\alpha \leq \beta$
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia A un insieme non vuoto di numeri reali che è limitato inferiormente. Sia $-A$ l'insieme di tutti i numeri $-x$, con $x \in A$. Mostrare che
+	$$
+		\inf{A} = - \sup{(-A)}
+	$$
+\end{enumerate}
+\begin{myproof}
+	sia $y \in \mathbb{R}$ un minorante di $A$. Allora si osserva che, per definizione, $\forall x \in A, y \leq x \implies -y \geq -x$ dunque $-A$ sarà limitato superiormente. Siccome $\forall E \subset \mathbb{R} \implies \exists \sup{E}, \inf{E} \in \mathbb{R}$ allora sappiamo che $-A$ avrà $\sup{(-A)} \in \mathbb{R}$ che denoteremo con $z = \sup{(-A)}$ e mostriamo la tesi, ovvero che $\sup{(-A)} = -\inf{A}$: dobbiamo mostrare che $-z$ è l'estremo inferiore. Per farlo si osserva che se $w > -z \implies z > -w$ dunque $-w$ non è un maggiorante di $-A$ dunque $\exists y=-x(x \in A \text{ per def.}) \in -A, z > y > -w \implies -z < -y < w$ ma siccome $-y=-(-x) = x \implies x < w$ dunque $w$ non è un minorante di $A$. Se invece supponiamo esista $w \in A : w < -z \implies -w > z$ ma $-w \in -A$ il che è assurdo siccome $\nexists w \in -A: w > \sup{(-A)}$. Dunque possiamo concludere che $\inf{A} = -\sup{(-A)}$ siccome abbiamo dimostrato che:
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+	\item $-z$ è un minorante di A;
+	\item $\forall x \in A, x > -z \implies x $ non è un minorante 
+\end{enumerate}
+\end{myproof}
+\end{document}
