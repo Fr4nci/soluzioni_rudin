@@ -10,9 +10,9 @@
 \begin{document}
 	\maketitle
 	\tableofcontents
-	\chapter{Capitolo 1}
+	\chapter{The real and complex number system}
 	\begin{enumerate}[label=\protect\circled{\arabic*}]
-		\item se $r$ è razionale ($r \neq 0$) e $x$ è razionale, provare che $r+x$ e $rx$ sono irrazionali
+		\item se $r$ è razionale ($r \neq 0$) e $x$ è irrazionale, provare che $r+x$ e $rx$ sono irrazionali
 		\begin{myproof}
 			Supponiamo per assurdo che $r \in \mathbb{Q}$ e $x$ sia irrazionale, mentre $r+x$ e $rx$ siano razionali. Allora, $r+x = \frac{m}{n}$ con $m, n \in \mathbb{Z}$. Ma siccome $r \in \mathbb{Q} \implies \exists p, q \in \mathbb{Z}: r = \frac{p}{q}$ e
 			$$
@@ -150,7 +150,7 @@ Dunque $\sup{B(x+y)}=\sup{B(x)}\sup{B(y)} \implies b^{x+y} = b^x b^y \, \forall 
 			\item $\forall n \in \mathbb{N}, b^n - 1 \geq n(b-1)$
 			\item Dunque $b-1 \geq n(b^{\frac{1}{n}}-1)$
 			\item Se $t>1$ e $n > \frac{b-1}{t-1}$ allora $b^{\frac{1}{n}}<t$
-			\item Se $b^w < y$ allora $b^{w+\frac{1}{n}} < y$ per $n$ sufficientemente grande
+			\item Se $b^w < y$ allora $b^{w+\frac{1}{n}} < y$ per $n$ sufficientemente grande (\emph{suggerimento}: per vedere questo applicare $t=yb^{-w}$ a (c))
 			\item se $b^w > y$ allora $b^{w-\frac{1}{n}}>y$ per $n$ sufficiente grande
 			\item Sia $A$ l'insieme di tutti i $w$ tali che $b^w < y$ e mostrare che $x=\sup{A}$ soddisfa $b^x = y$
 			\item Provare che $x$ è unico
@@ -167,5 +167,39 @@ Per mostrare la (b) possiamo usare il seguente lemma:
 \begin{myproof} Supponiamo che $b^p = \beta > 1$ con $p \in \mathbb{N}$ e per il teorema 1.21 sappiamo che esiste un unico numero $y \in \mathbb{R}$ tale che $y^p = \beta$ che indichiamo con $\beta^{\frac{1}{p}}$ dunque possiamo avere due possibili alternative: $\beta^{\frac{1}{p}} < 1$ o $\beta^{\frac{1}{p}} > 1$ ma si osserva che se per assurdo $\beta^{\frac{1}{p}} < 1 \implies (\beta^{\frac{1}{p}})^p < 1$ per gli assiomi di campo, il che è in contraddizione col fatto che $\beta > 1$.
 \nt{Si osservi che $\beta^{\frac{1}{p}} \neq 1$ siccome implicherebbe che $\frac{1}{p} = 0$ il che è impossibile}
 \end{myproof}
+\noindent Dunque, siccome $b^{\frac{1}{n}} > 1$, vale la proprietà che abbiamo mostrato prima: ponendo $t=b^{\frac{1}{n}} \implies t^n - 1 \geq n(t-1)$ ovvero $b-1 \geq n(b^{\frac{1}{n}} - 1)$. \\
+Per mostrare la (c) si osserva che se $t > 1$ e $n > \frac{b-1}{t-1}$ allora sappiamo che $b-1 \geq n(b^\frac{1}{n} - 1) \geq \frac{b-1}{t-1} (b^{\frac{1}{n}-1} - 1) \implies 1 > \frac{b^{\frac{1}{n}}-1}{t-1} \implies b^{\frac{1}{n}}-1 \leq t-1 \implies b^{\frac{1}{n}}<t$. \\
+Per mostrare la (d) si osserva che se $b^w < y \implies yb^{-w} > 1$ dunque è possibile applicare la (c) utilizzando $t=yb^{-w}$ dunque $b^{\frac{1}{n}} < yb^{-w} \implies b^{\frac{1}{n}+w} < y$ naturalmente per $n > \frac{b-1}{yb^{-w}-1}$. \\
+La dimostrazione per (e) è simile tuttavia cambia la "partenza", infatti la proprietà che abbiamo usato per mostrare (d) richiede che $t > 1$ e si osserva che se $b^w > y \implies \frac{b^w}{y} > 1 \implies b^{\frac{1}{n}} < \frac{b^w}{y} \implies b^{w-\frac{1}{n}} > 1$. \\ Per mostrare (f) si osserva che $A = \{w \in \mathbb{R} : b^w < y \}$ è sicuramente non vuoto e ammette un $\sup{A}$: si osserva innanzitutto che se $y>1$ allora $0 \in A$ dunque non è vuoto, se $y=1$ si osserva che $b^{-1} = \frac{1}{b} < 1 \implies -1 \in A$ e se $0 < y < 1 $ si ha che $\frac{1}{y} > 1$ e possiamo mostrare tramite il seguente lemma:
+\mlenma{$y=b^x$ non è limitata superiormente}{Sia $b>1$. Allora l'insieme
+$$
+	\mathcal{S} = \{ b^n: n \in \mathbb{N} \}
+$$
+non è limitato superiormente
+}
+\begin{myproof}
+Supponiamo per assurdo che sia limitato superiormente allora $\exists \sup{\mathcal{S}} := \alpha$ allora $\forall n \in \mathbb{N}, \alpha > b^n$. Per caratterizzazione del $\sup{\mathcal{S}}$ si ha che $\forall x < \alpha, x$ non è un maggiorante, dunque $\frac{\alpha}{b} < \alpha$ non è maggiorante, dunque esiste $k \in \mathbb{N}: \frac{\alpha}{b} < b^k \implies \alpha < b^{k+1}$ il che è assurdo 
 \end{myproof}
+\noindent Tramite questo lemma sappiamo che deve esistere dunque un $n \in \mathbb{N}: b^n > \frac{1}{y} \implies b^{-n} < y \implies -n \in A$. A questo punto mostriamo che $x = \sup{A}$ soddisfa $b^x=y$: supponiamo che $b^x < y \implies b^{x+\frac{1}{n}} < y \implies x + \frac{1}{n} \in A$ dunque questo contraddice la definizione di estremo superiore ($x$ non è un maggiorante); se invece $b^x > y \implies b^{x - \frac{1}{n}} > y \implies x - \frac{1}{n}$ è a sua volta un maggiorante quindi contraddice la definizione di estremo superiore (non è soddisfatta la proprietà secondo cui $\forall x < \sup{\mathcal{S}}, x$ non è maggiorante. Dunque l'unica possibilità è che $b^x = y$. \\
+Per mostrare che $x$ è unico supponiamo per assurdo che $\exists x $ e $x'$ tali che $x \neq x'$ e $b^x = b^{x'} = y$. Abbiamo due possibilità: $x' > x$ oppure $x > x'$ e, senza perdita di generalità, mostriamo solamente che si giunge ad una contraddizione se $x' > x$ (la dimostrazione è equivalente nell'altro caso): si consideri il sistema
+\begin{align*}
+	\begin{cases}
+	&b^x = y \\
+	&b^{x'} = y
+	\end{cases}
+\end{align*}
+allora dividendo membro a membro avremo che $b^{x' - x} = 1$ ma siccome $x' - x > 0 \implies b^{x' - x} > 1$, il che è assurdo (il fatto che $b^w>1$ se $w>0$ segue dal fatto che un qualunque numero razionale\footnote{nel caso dei reali si considera la sezione di Dedekind e dunque si prende un razionale appartenente alla sezione su cui valgono le considerazioni che ora sto per enunciare} positivo possa essere scritto come $\frac{m}{n}$ con $m, n \in \mathbb{N}$ e sappiamo che $b^m > 1$ e, per il lemma 1.4, concludiamo che $(b^m)^{\frac{1}{n}} > 1$).
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Mostrare che non è possibile definire un ordine che trasformi un campo complesso in uno ordinato
+\end{enumerate}
+\begin{myproof}
+	supponiamo per assurdo che possa essere introdotta una relazione d'ordine che renda il campo dei numeri complessi un campo ordinato, allora vuol dire che:
+	\begin{enumerate}[label=\protect\circled{\arabic*}]
+		\item $i > 0$
+		\item $i < 0$
+	\end{enumerate}
+	ma allora se supponiamo che $i>0$ allora $i \cdot i > 0 \cdot i \implies -1 > 0$ ma questo contraddice completamente il fatto $1 > 0$ in un campo ordinato e dunque $-1 < 0$. Se invece $i < 0 \implies (-i) > 0 \implies (-i) \cdot (-i) > 0 \implies -1 > 0$ che è nuovamente assurdo. Naturalmente si è escluso il caso $i = 0$ per ragioni banali.
+\end{myproof}
+
 \end{document}
