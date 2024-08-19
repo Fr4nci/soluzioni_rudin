@@ -144,4 +144,28 @@ In conclusione, abbiamo quindi mostrato che $B(x)B(y)=B(x+y)$. Ora però dobbiam
 \end{enumerate}
 Dunque $\sup{B(x+y)}=\sup{B(x)}\sup{B(y)} \implies b^{x+y} = b^x b^y \, \forall x, y \in \mathbb{R}$
 \end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Fissato $b>1, y>0$; provare che esiste un unico reale $x$ tale che $b^x = y$ utilizzando la seguente "scaletta":
+		\begin{enumerate}
+			\item $\forall n \in \mathbb{N}, b^n - 1 \geq n(b-1)$
+			\item Dunque $b-1 \geq n(b^{\frac{1}{n}}-1)$
+			\item Se $t>1$ e $n > \frac{b-1}{t-1}$ allora $b^{\frac{1}{n}}<t$
+			\item Se $b^w < y$ allora $b^{w+\frac{1}{n}} < y$ per $n$ sufficientemente grande
+			\item se $b^w > y$ allora $b^{w-\frac{1}{n}}>y$ per $n$ sufficiente grande
+			\item Sia $A$ l'insieme di tutti i $w$ tali che $b^w < y$ e mostrare che $x=\sup{A}$ soddisfa $b^x = y$
+			\item Provare che $x$ è unico
+		\end{enumerate}	
+\end{enumerate}
+\begin{myproof}
+per mostrare la (a) possiamo usare la seguente identità e osservare che $b^i > 1 \forall i \in \mathbb{N}: i \geq 0 \implies \sum\limits_{i=0}^{n+1} b^i \geq \sum\limits_{i=0}^{n+1} 1 = n+1$
+$$
+b^{n+1} - 1 = (b-1)(b^n + b^{n-1} + \ldots + b + 1) \geq (b-1)(n+1)
+$$
+Potevamo altrimenti ragionare per induzione osservando che $b^{n+1} - 1 = (b^{n+1} + b) - (b - 1) = b(b^n - 1) - (b-1) \geq bn(b-1) - (b-1) = (b-1)(bn - 1) \geq (b-1)(n+1)$ e osservare che la tesi è banalmente vera per $n=0$. \\
+Per mostrare la (b) possiamo usare il seguente lemma:
+\mlenma{}{Sia $b>1$ allora $b^{\frac{1}{n}}>1 \, \forall n \in \mathbb{N}$}
+\begin{myproof} Supponiamo che $b^p = \beta > 1$ con $p \in \mathbb{N}$ e per il teorema 1.21 sappiamo che esiste un unico numero $y \in \mathbb{R}$ tale che $y^p = \beta$ che indichiamo con $\beta^{\frac{1}{p}}$ dunque possiamo avere due possibili alternative: $\beta^{\frac{1}{p}} < 1$ o $\beta^{\frac{1}{p}} > 1$ ma si osserva che se per assurdo $\beta^{\frac{1}{p}} < 1 \implies (\beta^{\frac{1}{p}})^p < 1$ per gli assiomi di campo, il che è in contraddizione col fatto che $\beta > 1$.
+\nt{Si osservi che $\beta^{\frac{1}{p}} \neq 1$ siccome implicherebbe che $\frac{1}{p} = 0$ il che è impossibile}
+\end{myproof}
+\end{myproof}
 \end{document}
