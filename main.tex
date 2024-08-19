@@ -121,6 +121,16 @@
 		(b^{r} b^s)^{nq} = (b^{r})^{nq} (b^s)^{nq} = (b^{\frac{m}{n}})^{nq} (b^{\frac{p}{q}})^{nq} = b^{mq} b^{pn} = b^{mq+np}
 	$$
 	dunque $(b^{r+s})^{nq} = (b^r b^s)^{nq} \implies b^{r+s} = b^r b^s$. \\ Per mostrare la (c) bisogna innanzitutto osservare che, definendo $B(x)$ come sopra si ha che, dati $t, s \in B(x), t \leq s \implies b^t \leq b^s$. Se consideriamo $B(r)$ con $r$ razionale, allora si ha banalmente che $b^r \in B(r)$ e dev'essere l'estremo superiore: infatti, se consideriamo $t > r \implies b^t > b^r$, dunque $b^t > b^r \geq b^x \implies b^t > b^x \, \forall x \in B(r)$ dunque $t$ è un maggiorante di $B(r)$. Mostriamo che $\forall x < r: x$ non è un maggiorante: se per assurdo $\exists x < r: x$ è maggiorante, allora $\forall y \in B(r), y \leq \alpha < r \implies b^y < b^{\alpha} < b^t$ il che è assurdo siccome $r \in B(r)$. \\
-	Per mostrare la (d) si osserva che dobbiamo mostrare, per il punto precedente, che $\sup{B(x+y)} = \sup{B(x)}\sup{B(y)} = b^x b^y$. Per fare ciò si osserva che $\forall b^s \in B(x)$ e $\forall b^t \in B(y) \implies b^{s+t} \in B(x+y)$ siccome $s \leq x$ e $t \leq y$ dunque $s+t \leq x+y$ dunque $Z \subset B(x+y)$ con $Z = \{ b^z \in \mathbb{R}: \exists s \leq x, t \leq y: b^z = b^s b^t \}$ dunque $\sup{B(x)B(y)} \leq \sup{B(x+y)}$
+	Per mostrare la (d) si osserva che dobbiamo mostrare, per il punto precedente, che $\sup{B(x+y)} = \sup{B(x)}\sup{B(y)} = b^x b^y$. Per fare ciò faremo uso del seguente lemma
+	\mlenma{Unicità del $\sup$ e $\inf$}{Sia $A \subseteq \mathbb{R}$ un insieme non vuoto limitato superiormente (inferiormente). Allora $\sup{A}$ ($\inf{A}$) esiste ed è unico}
+	\begin{myproof}
+	l'esistenza del $\sup{A}$ è garantita dall'assioma di completezza (o di Dedekind) dei reali. Per dimostrare l'unicità, supponiamo per assurdo che il $\sup$ non sia unico ed esistano $m=\sup{A}$ $m'=\sup{A}$ con $m \neq m'$. Allora, per come è definito il $\sup$, dobbiamo avere che $m \leq m'$ e $m' \leq m$ (siccome sia $m$ e $m'$ sono dei maggioranti e, per la precisione, il minore dei maggioranti) $\implies m = m'$
+	\end{myproof}	
+	
+\noindent e si osserva che $\forall b^s \in B(x)$ e $\forall b^t \in B(y) \implies b^{s+t} \in B(x+y)$ siccome $s \leq x$ e $t \leq y$ dunque $s+t \leq x+y$ dunque $Z \subset B(x+y)$ con $Z = \{ b^z \in \mathbb{R}: \exists s \leq x, t \leq y: b^z = b^s b^t \}$ dunque $\sup{B(x)B(y)} \leq \sup{B(x+y)}$. Tuttavia si osserva che $\forall z \in \mathbb{R} : b^z \in B(x+y)$ possiamo considerare invece i numeri razionali che soddisfano la seguente proprietà $t-x < p < y$ e consideriamo a questo punto $q = t - p$ da cui avremo che $t-x < p \implies t - p < x \implies q < x$ ma allora $t = p + q$, dunque:
+$$
+b^t = b^{p+q} \stackrel{\text{per quanto visto sopra}}{=} b^p b^q
+$$
+e da qua possiamo tranquillamente considerare $x > p$ e $y> q$ per far vedere che $\forall z: b^z \in B(x+y) \exists s, t: b^s b^t \in B(x)B(y) : b^z < b^s b^t$ dunque $\sup{B(x+y)} \leq \sup{B(x)B(y)}$
 \end{myproof}
 \end{document}
