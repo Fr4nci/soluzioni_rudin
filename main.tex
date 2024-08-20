@@ -13,19 +13,19 @@
 	\chapter{The real and complex number system}
 	\begin{enumerate}[label=\protect\circled{\arabic*}]
 		\item se $r$ è razionale ($r \neq 0$) e $x$ è irrazionale, provare che $r+x$ e $rx$ sono irrazionali
-		\begin{myproof}
+		\begin{mysolution}
 			Supponiamo per assurdo che $r \in \mathbb{Q}$ e $x$ sia irrazionale, mentre $r+x$ e $rx$ siano razionali. Allora, $r+x = \frac{m}{n}$ con $m, n \in \mathbb{Z}$. Ma siccome $r \in \mathbb{Q} \implies \exists p, q \in \mathbb{Z}: r = \frac{p}{q}$ e
 			$$
 				r + x = \frac{p}{q} + x = \frac{m}{n} \implies x = \frac{p}{q} - \frac{m}{n} = \frac{pn - qm}{qn} \implies x \in \mathbb{Q}
 			$$ 
 			il che è assurdo. \\
 			Procediamo con $rx$ alla solita maniera: se $rx \in \mathbb{Q} \implies \exists m, n \in \mathbb{Z}: rx = \frac{m}{n}$.  Ma allora, sapendo che $r = \frac{p}{q}$ con $p, q \in \mathbb{Z}$ in virtù della sua razionalità, $x = \frac{m}{nr} = \frac{mq}{np} \implies x \in \mathbb{Q}$ il che è nuovamente assurdo.
-		\end{myproof}
+		\end{mysolution}
 \end{enumerate}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 		\item Provare che non esiste razionale $q$ tale che $q^2 = 12$
 \end{enumerate}
-		\begin{myproof}
+		\begin{mysolution}
 			si osservi il seguente lemma (di cui non daremo dimostrazione)
 			\mlenma{(di Euclide)}{Sia $n \in \mathbb{Z}$ e $n$ è primo.Se $n | ab$ e $a$ è coprimo con $b$ (o viceversa) allora $n | a \vee n | b$}
 		\noindent Supponiamo per assurdo che $\exists q \in \mathbb{Q} : q^2 = 12$. Data la razionalità di $q$ abbiamo che esistono $m, n \in \mathbb{Z}: q = \frac{m}{n}$ e $m$ e $n$ coprimi fra allora. Ciò implica che:
@@ -41,7 +41,7 @@
 		k^2 = 9q^2 = 3n^2 \implies n^2 = 3q^2
 		$$
 		dunque $n^2$ è divisibile per $3$ e, sempre per il lemma di Euclide, $n$ è divisibile per $3$. Ma allora si giunge ad un assurdo siccome $m = 2k$ con $3 | k$ e $3 | n$ contro l'ipotesi di coprimità fra $m$ e $n$
-		\end{myproof}
+		\end{mysolution}
 		Un'ulteriore dimostrazione poteva essere effettuata basandosi sul fatto che $\sqrt{12} = 2\sqrt{3}$ dunque, tramite l'esercizio 1, sappiamo che $rx$ è irrazionale se $x$ è irrazionale e $r$ razionale quindi la dimostrazione si riduceva a provare che $\sqrt{3}$ è irrazionale.
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 		\item Provare la seguente proposizione
@@ -53,32 +53,32 @@
 			\item Se $x \neq 0$ e $xy = 1 \implies y = x^{-1}$
 			\item Se $x \neq 0$ mostrare che $(x^{-1})^{-1} = x$
 		\end{enumerate}}
-	\begin{myproof}
+	\begin{mysolution}
 	per dimostrare la \circled{1}, banalmente, si ha che:
 	$$
 	y \stackrel{\text{esistenza di un elemento inverso e } x \neq 0}{=}  x x^{-1} y \stackrel{\text{prop. commutativa}}{=} xz x^{-1} \stackrel{\text{prop. commutativa}}{=} x x^{-1} z = z \implies y=z
 	$$
 	La \circled{2} segue direttamente dalla prima ponendo $z=1$, così come la \circled{3} ponendo $z=x^{-1}$. Per la \circled{4} si osserva che siccome $\forall x \neq 0, x x^{-1} = 1$ allora $\frac{1}{x} (\frac{1}{x})^{-1} = 1 \implies x \frac{1}{x} (\frac{1}{x})^{-1} = x \implies (\frac{1}{x})^{-1} = x$
-	\end{myproof}
+	\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Sia $E \subset A$ con $A$ insieme ordinato (totalmente? Il Rudin non ce lo fa sapere ma è abbastanza probabile). Supponiamo che $\alpha$ sia un minorante di $E$ e $\beta$ sia un maggiorante di $E$. Provare che $\alpha \leq \beta$
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	per definizione abbiamo che se $\alpha$ è un minorante allora $\forall x \in E, \alpha \leq x$ e se $\beta$ è un maggiorante allora $\forall x \in E, x \leq \beta$. Per transitività si ha che $\alpha \leq \beta$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Sia A un insieme non vuoto di numeri reali che è limitato inferiormente. Sia $-A$ l'insieme di tutti i numeri $-x$, con $x \in A$. Mostrare che
 	$$
 		\inf{A} = - \sup{(-A)}
 	$$
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	sia $y \in \mathbb{R}$ un minorante di $A$. Allora si osserva che, per definizione, $\forall x \in A, y \leq x \implies -y \geq -x$ dunque $-A$ sarà limitato superiormente. Siccome $\forall E \subset \mathbb{R} \implies \exists \sup{E}, \inf{E} \in \mathbb{R}$ allora sappiamo che $-A$ avrà $\sup{(-A)} \in \mathbb{R}$ che denoteremo con $z = \sup{(-A)}$ e mostriamo la tesi, ovvero che $\sup{(-A)} = -\inf{A}$: dobbiamo mostrare che $-z$ è l'estremo inferiore. Per farlo si osserva che se $w > -z \implies z > -w$ dunque $-w$ non è un maggiorante di $-A$ dunque $\exists y=-x(x \in A \text{ per def.}) \in -A, z > y > -w \implies -z < -y < w$ ma siccome $-y=-(-x) = x \implies x < w$ dunque $w$ non è un minorante di $A$. Se invece supponiamo esista $w \in A : w < -z \implies -w > z$ ma $-w \in -A$ il che è assurdo siccome $\nexists w \in -A: w > \sup{(-A)}$. Dunque possiamo concludere che $\inf{A} = -\sup{(-A)}$ siccome abbiamo dimostrato che:
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 	\item $-z$ è un minorante di A;
 	\item $\forall x > -z \implies x $ non è un minorante 
 \end{enumerate}
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Fissato $b>1$ \begin{enumerate}
 		\item Se $m, n, p, q \in \mathbb{Z}, n>0, q>0$ e $r=\frac{m}{n} = \frac{p}{q}$ mostrare che
@@ -99,7 +99,7 @@
  		\item Mostrare che $b^{x+y}=b^x b^y \, \forall x, y \in \mathbb{R}$
 	\end{enumerate}
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	Per mostrare (a) si osserva che, dal teorema 1.21, si deve avere che esistono due numeri reali $r_1$ e $r_2$ che identificano univocamente $(b^m)^{\frac{1}{n}}$ e $(b^p)^{\frac{1}{q}}$ rispettivamente. La tesi dunque si ottiene mostrando che $r_1 = r_2$. Si osserva che $(r_1)^n = b^m$ e $(r_2)^q = b^p$ e, siccome $r$ è razionale, possiamo scrivere che $m = rn$ e $p = rq$. Dunque
 	\begin{align*}
 		&(r_1)^n = b^{rn} & &(r_2)^q = b^{rq}
@@ -143,7 +143,7 @@ In conclusione, abbiamo quindi mostrato che $B(x)B(y)=B(x+y)$. Ora però dobbiam
 	\item $\forall x < \sup{B(x)}\sup{B(y)}: x$ non è un maggiorante. Per mostrare questo fatto si mostra che $\sup{B(x)B(y)} = \sup{B(x)}\sup{B(y)}$ per assurdo, supponendo (in virtù di quanto detto prima) che $\sup{B(x)B(y)} < \sup{B(x)}\sup{B(y)} \implies \frac{\sup{B(x)B(y)}}{\sup{B(y)}} < \sup{B(x)}$ e, sempre ragionando alla stessa maniera, possiamo concludere che $\frac{\sup{B(x)B(y)}}{\sup{B(x)}} < \sup{B(y)}$: si osserva che la quantità $\frac{\sup{B(x)B(y)}}{\sup{B(y)}}$ non è un maggiorante di $B(x)$ (per definizione di $\sup{B(x)}$ di cui la quantità $\frac{\sup{B(x)B(y)}}{\sup{B(y)}}$ è minore) e dunque $\exists r \in \mathbb{Q}: b^r \in B(x) :\frac{\sup{B(x)B(y)}}{\sup{B(y)}} < b^r \implies \frac{\sup{B(x)B(y)}}{b^r} < \sup{B(y)} \implies \exists s \in \mathbb{Q}: b^s \in B(y): \frac{\sup{B(x)B(y)}}{b^r} < b^s$ (perché, ragionando come prima, se la quantità $\frac{\sup{B(x)B(y)}}{b^r} < \sup{B(y)}$ deve esistere un numero razionale per cui la disuguaglianza è stretta). Ma allora si giunge ad un assurdo siccome $\sup{B(x)B(y)}=\sup{B(x+y)} < b^s b^t = b^{s+t} \in B(x+y)$ che è un assurdo.
 \end{enumerate}
 Dunque $\sup{B(x+y)}=\sup{B(x)}\sup{B(y)} \implies b^{x+y} = b^x b^y \, \forall x, y \in \mathbb{R}$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Fissato $b>1, y>0$; provare che esiste un unico reale $x$ tale che $b^x = y$ utilizzando la seguente "scaletta":
 		\begin{enumerate}
@@ -156,7 +156,7 @@ Dunque $\sup{B(x+y)}=\sup{B(x)}\sup{B(y)} \implies b^{x+y} = b^x b^y \, \forall 
 			\item Provare che $x$ è unico
 		\end{enumerate}	
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 per mostrare la (a) possiamo usare la seguente identità e osservare che $b^i > 1 \forall i \in \mathbb{N}: i \geq 0 \implies \sum\limits_{i=0}^{n+1} b^i \geq \sum\limits_{i=0}^{n+1} 1 = n+1$
 $$
 b^{n+1} - 1 = (b-1)(b^n + b^{n-1} + \ldots + b + 1) \geq (b-1)(n+1)
@@ -189,22 +189,22 @@ Per mostrare che $x$ è unico supponiamo per assurdo che $\exists x $ e $x'$ tal
 	\end{cases}
 \end{align*}
 allora dividendo membro a membro avremo che $b^{x' - x} = 1$ ma siccome $x' - x > 0 \implies b^{x' - x} > 1$, il che è assurdo (il fatto che $b^w>1$ se $w>0$ segue dal fatto che un qualunque numero razionale\footnote{nel caso dei reali si considera la sezione di Dedekind e dunque si prende un razionale appartenente alla sezione su cui valgono le considerazioni che ora sto per enunciare} positivo possa essere scritto come $\frac{m}{n}$ con $m, n \in \mathbb{N}$ e sappiamo che $b^m > 1$ e, per il lemma 1.4, concludiamo che $(b^m)^{\frac{1}{n}} > 1$).
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Mostrare che non è possibile definire una relazione d'ordine sull'insieme dei numeri complessi che renda il campo (dei numeri complessi) ordinato
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	supponiamo per assurdo che possa essere introdotta una relazione d'ordine che renda il campo dei numeri complessi un campo ordinato, allora vuol dire che:
 	\begin{enumerate}[label=\protect\circled{\arabic*}]
 		\item $i > 0$
 		\item $i < 0$
 	\end{enumerate}
 	ma allora se supponiamo che $i>0$ allora $i \cdot i > 0 \cdot i \implies -1 > 0$ ma questo contraddice completamente il fatto $1 > 0$ in un campo ordinato e dunque $-1 < 0$. Se invece $i < 0 \implies (-i) > 0 \implies (-i) \cdot (-i) > 0 \implies -1 > 0$ che è nuovamente assurdo. Naturalmente si è escluso il caso $i = 0$ per ragioni banali.
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Supponiamo che $z=a+bi$ e $w=c+di$ e definiamo su di essi una relazione d'ordine tale che $z < w$ se $a < c$ e anche se $a=c$ ma $b < d$. Mostrare che questo trasforma l'insieme dei numeri complessi in un insieme ordinato. Questo ordine possiede anche la proprietà del $\sup$?
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 Mostriamo che questa relazione d'ordine soddisfa le proprietà: dati due numeri complessi $z$ e $w$ si osserva che i numeri reali sono un campo ordinato, dunque avremo sempre che $a < c$ oppure $a > c$ oppure $a = c$ (nel primo caso avremo che $z < w$ e nel secondo caso $z > w$). L'unico caso non banale è $a = c$ che possiamo risolvere "guardando" le componenti immaginarie dei numeri complessi, che saranno a loro volta sempre dei numeri reali che, essendo ordinati, avremo sempre che $b<d$ oppure $b>d$ oppure $b=d$ (nel primo caso avremo $z < w$ e nel secondo $z > w$). Se $b=d$ allora si deve concludere che $z=w$: abbiamo quindi dimostrato che, dati due elementi $z, w \in \mathbb{C}$ vale sempre uno dei seguenti predicati:
 \begin{align*}
 	&z < w & &z=w & &z>w
@@ -231,7 +231,7 @@ $$
 A = \{a+bi \in \mathbb{C}: a \leq 0 \}
 $$
 si osserva che tutti i numeri immaginari con parte reale positiva sono dei maggioranti dunque $A$ è limitato superiormente. Supponiamo per assurdo che $\exists C \in \mathbb{C}: C \geq x \, \forall x \in A$ allora questo implica necessariamente che $\text{Re}(C) > 0$ (altrimenti non potrebbe essere un maggiorante di ogni elemento dell'insieme A) ma si osserva che fallisce miseramente la proprietà caratterizzante del $\sup$ secondo cui $\forall x < C, x$ non è maggiorante siccome qualunque numero nella forma $\frac{\text{Re}(C)}{n} + bi$ con $n \in \mathbb{N}$ sarà minore di $C$ ma sarà un maggiorante di $A$.
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Supporre che $z=a+bi$ e $w=u+iv$ e
 	\begin{align*}
@@ -239,7 +239,7 @@ si osserva che tutti i numeri immaginari con parte reale positiva sono dei maggi
 	\end{align*}
 	provare che $z^2=w$ se $v \geq 0$ e che $(\bar{z})^2 = w$ se $v \leq 0$. Concludere che ogni numero complesso (con una eccezione) ha due radici complesse
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	calcoliamo $z^2 = (a + bi)^2 = a^2 - b^2 + 2abi = \frac{|w| + u}{2} - \frac{|w|-u}{2} + 2 \left( \frac{|w|^2 - u^2}{4} \right)^{\frac{1}{2}} = u + 2i \left( \frac{u^2 + v^2 - u^2}{4} \right)^{\frac{1}{2}} = u + i|v|$. Distinguiamo due casi:
 	\begin{equation*}
 		z^2 = \begin{cases}
@@ -255,20 +255,20 @@ si osserva che tutti i numeri immaginari con parte reale positiva sono dei maggi
 		\end{cases}
 	\end{equation*}
 Dunque abbiamo ottenuto quanto richiesto. Per mostrare che ogni numero complesso ha due radici si osservi che nell'esercizio abbiamo mostrato che $z$ definito come mostrato soddisfa il fatto che $z^2 = w$. Ora se $v>0$ allora si ha che le radici di $w$ sono $z$ e $-z$ mentre se $v<0$ allora si ha che le radici sono $\bar{z}$ e $-\bar{z}$. Se invece $v=0 \implies z^2 = a \implies z = \pm \sqrt{a}$ mentre se $u=v=0 \implies z=\bar{z}=0$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Se $z$ è un numero complesso, mostrare che esiste un numero $r \geq 0$ e un numero complesso $w \in \mathbb{C}$ con $|w|=1$ tale che $z=rw$. Sono $r$ e $w$ identificati unicamente da $z$
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 	Se si considera $w=\frac{z}{|z|} \implies |w|=1$ e si considera $r=|z|$ dunque $z = rw = |z| \frac{z}{|z|} = z$ e questi sono univocamente determinati se $z \neq 0$ (in tal caso $r=0$ ma $w=a+bi \, \forall a, b \in \mathbb{R}$)
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Se $z_1, \ldots, z_n \in \mathbb{C}$ mostrare che:
 	$$
 	|z_1 + \ldots + z_n| \leq |z_1| + \ldots + |z_n|
 	$$
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 si procede per induzione sul numero di termini, osservando che per $n=1$ e $n=2$ è banalmente vero. Mostriamo che $n \implies n+1$:
 $$
 |z_1 + \ldots + z_n + z_{n+1}| = |\alpha + z_{n+1}|
@@ -277,31 +277,67 @@ dove con $\alpha=z_1 + \ldots + z_n$. Siccome nell'ultimo valore assoluto abbiam
 $$
 	|\alpha + z_{n+1}| \leq |\alpha| + |z_{n+1}| \stackrel{\text{ip. induttiva}}{\leq} |z_1| + \ldots + |z_{n+1}|
 $$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Se $x, y$ sono complessi, mostrare che 
 	$$
 	||x|-|y|| \leq |x-y|
 	$$
 \end{enumerate}
-\begin{myproof} si osserva che $|x| = |x-y+y| \leq |x-y| + |y| \implies |x|-|y| \leq |x-y|$ ma ragionando similmente con $|y| = |y+x-x| \leq |x-y| + |x| \implies |y|-|x| \leq |x-y|$. Siccome i reali sono ordinati dovremo avere che $|y|>|x|$ oppure $|x|>|y|$ dunque abbiamo che $||x|-|y|| = |x|-|y|$ oppure $||x|-|y||=|y|-|x|$. In ogni caso abbiamo ottenuto in entrambi i casi una relazione dove $|x-y|$ maggiora entrambe le due espressioni, dunque:
+\begin{mysolution} si osserva che $|x| = |x-y+y| \leq |x-y| + |y| \implies |x|-|y| \leq |x-y|$ ma ragionando similmente con $|y| = |y+x-x| \leq |x-y| + |x| \implies |y|-|x| \leq |x-y|$. Siccome i reali sono ordinati dovremo avere che $|y|>|x|$ oppure $|x|>|y|$ dunque abbiamo che $||x|-|y|| = |x|-|y|$ oppure $||x|-|y||=|y|-|x|$. In ogni caso abbiamo ottenuto in entrambi i casi una relazione dove $|x-y|$ maggiora entrambe le due espressioni, dunque:
 $$
 	||x|-|y|| \leq |x-y|
 $$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Se $z \in \mathbb{C}$ è un numero complesso tale che $|z|=1$ (dunque $z\bar{z}=1$) calcolare
 	$$
 	|1+z|^2 + |1-z|^2
 	$$
 \end{enumerate}
-\begin{myproof}
+\begin{mysolution}
 si osserva che, ponendo $z=a+bi$, $|1+z|^2 = (a+1)^2 + b^2$ mentre $|1-z|^2 = (1-a)^2 + b^2$, dunque
 $$
 	|1+z|^2 + |1-z|^2 = (a+1)^2 + b^2 + b^2 + (1-a)^2 = 2b^2 + (a+1)^2 + (a-1)^2 = 2a^2 + 2b^2 + 2 = 2|z|+2 = 4
 $$
-\end{myproof}
+\end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Sotto quali condizioni è valida l'equazione nella disuguaglianza di Cauchy-Schwarz?
 \end{enumerate}
+\begin{mysolution}
+nella dimostrazione di Cauchy-Schwarz abbiamo visto che l'eguaglianza sussiste se $b_i = 0 \, \forall i$ e anche se i termini $a_i$ sono proporzionali a quelli $b_i$ (in pratica se i vettori \textbf{$a$} e \textbf{$b$} sono linearmente dipendenti).
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Mostrare che se $k \geq 3, x, y \in \mathbb{R}^k, |x-y|=d>0$ e $r > 0$ allora
+		\begin{enumerate}
+			\item se $2r > d$ ci sono infiniti $z \in \mathbb{R}^k$ tali che
+			$$
+				|z-x| = |z-y| = r
+			$$
+			\item se $2r=d$ allora esiste un unico $z \in \mathbb{R}^k$ che soddisfa la proprietà sopra
+			\item se $2r < d$ allora non esiste nessuno $z \in \mathbb{R}^k$
+		\end{enumerate}
+\end{enumerate}
+\begin{mysolution}
+ancora niente
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Mostrare che
+	$$
+		|x+y|^2 + |x-y|^2 = 2|x|^2 + 2|y|^2
+	$$
+	se $x \in \mathbb{R}^k$ e $y \in \mathbb{R}^k$. Interpretare questo risultato in virtù dei parallelogrammi
+\end{enumerate}
+\begin{mysolution} \begin{align*}
+	&|x+y|^2 = |x|^2 + |y|^2 + 2 x \cdot y \\
+	&|x-y|^2 = |x|^2 + |y|^2 - 2 x \cdot y \\
+	\end{align*}
+	dunque $|x+y|^2 + |x-y|^2 = 2|x|^2 + 2|y|^2$. Se $x$ e $y$ sono i lati di un parallelogramma, questo risultato ci dice che le sue diagonali $x+y$ e $x-y$ soddisfano il fatto che la somma delle loro norme è uguale alla somma del doppio delle norme dei due lati $x$ e $y$
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Se $k \geq 2$ e $x \in \mathbb{R}^k$, mostrare che esiste un unico $y \in \mathbb{R}^k$ tale che $y \neq 0$ ma $x \cdot y = 0$. E' vero per $k=1$?
+\end{enumerate}
+\begin{mysolution}
+siccome il prodotto scalare canonico di $\mathbb{R}^k$ è non degenere, dalla formula delle dimensioni del radicale possiamo considerare il sottospazio generato dal vettore $x$ che indichiamo con $U$ (che avrà dimensione $1$) e il radicale $U^{\perp}$ (che avrà dimensione $k-1$). Dunque, siccome $U^{\perp}$ è un sottospazio vettoriale, esiste sicuramente un elemento $y$ tale che $x \cdot y = 0$.
+\end{mysolution}
 \end{document}

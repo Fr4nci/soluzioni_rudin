@@ -619,7 +619,9 @@
 \newenvironment{myproof}[1][\proofname]{%
 	\proof[\bfseries #1: ]%
 }{\endproof}
-
+\newenvironment{mysolution}[1][\proofname]{%
+	\proof[\bfseries Soluzione: ]%
+}{\endproof}
 \newcommand{\mclm}[2]{\begin{myclaim}[#1]#2\end{myclaim}}
 \newenvironment{myclaim}[1][\claimname]{\proof[\bfseries #1: ]}{}
 
