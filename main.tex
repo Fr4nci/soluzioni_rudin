@@ -232,4 +232,76 @@ A = \{a+bi \in \mathbb{C}: a \leq 0 \}
 $$
 si osserva che tutti i numeri immaginari con parte reale positiva sono dei maggioranti dunque $A$ è limitato superiormente. Supponiamo per assurdo che $\exists C \in \mathbb{C}: C \geq x \, \forall x \in A$ allora questo implica necessariamente che $\text{Re}(C) > 0$ (altrimenti non potrebbe essere un maggiorante di ogni elemento dell'insieme A) ma si osserva che fallisce miseramente la proprietà caratterizzante del $\sup$ secondo cui $\forall x < C, x$ non è maggiorante siccome qualunque numero nella forma $\frac{\text{Re}(C)}{n} + bi$ con $n \in \mathbb{N}$ sarà minore di $C$ ma sarà un maggiorante di $A$.
 \end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Supporre che $z=a+bi$ e $w=u+iv$ e
+	\begin{align*}
+		&a = \left( \frac{|w|+u}{2} \right)^{\frac{1}{2}} & &b=\left(\frac{|w|-u}{2} \right)^{\frac{1}{2}}
+	\end{align*}
+	provare che $z^2=w$ se $v \geq 0$ e che $(\bar{z})^2 = w$ se $v \leq 0$. Concludere che ogni numero complesso (con una eccezione) ha due radici complesse
+\end{enumerate}
+\begin{myproof}
+	calcoliamo $z^2 = (a + bi)^2 = a^2 - b^2 + 2abi = \frac{|w| + u}{2} - \frac{|w|-u}{2} + 2 \left( \frac{|w|^2 - u^2}{4} \right)^{\frac{1}{2}} = u + 2i \left( \frac{u^2 + v^2 - u^2}{4} \right)^{\frac{1}{2}} = u + i|v|$. Distinguiamo due casi:
+	\begin{equation*}
+		z^2 = \begin{cases}
+			u+iv=w  & \text{se } v \geq 0 \\
+			u-iv=\bar{w}   & \text{se } v \leq 0
+		\end{cases}
+	\end{equation*}
+	adesso calcoliamo $(\bar{z})^2 = (a-bi)^2 = a^2 - b^2 - 2abi$ e procedendo come prima si deduce che $(\bar{z})^2 = u-|v|i$:
+	\begin{equation*}
+		(\bar{z})^2 = \begin{cases}
+			u+iv = w & \text{se } v \leq 0 \\
+			u-iv = \bar{w} & \text{se } v \geq 0
+		\end{cases}
+	\end{equation*}
+Dunque abbiamo ottenuto quanto richiesto. Per mostrare che ogni numero complesso ha due radici si osservi che nell'esercizio abbiamo mostrato che $z$ definito come mostrato soddisfa il fatto che $z^2 = w$. Ora se $v>0$ allora si ha che le radici di $w$ sono $z$ e $-z$ mentre se $v<0$ allora si ha che le radici sono $\bar{z}$ e $-\bar{z}$. Se invece $v=0 \implies z^2 = a \implies z = \pm \sqrt{a}$ mentre se $u=v=0 \implies z=\bar{z}=0$
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Se $z$ è un numero complesso, mostrare che esiste un numero $r \geq 0$ e un numero complesso $w \in \mathbb{C}$ con $|w|=1$ tale che $z=rw$. Sono $r$ e $w$ identificati unicamente da $z$
+\end{enumerate}
+\begin{myproof}
+	Se si considera $w=\frac{z}{|z|} \implies |w|=1$ e si considera $r=|z|$ dunque $z = rw = |z| \frac{z}{|z|} = z$ e questi sono univocamente determinati se $z \neq 0$ (in tal caso $r=0$ ma $w=a+bi \, \forall a, b \in \mathbb{R}$)
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Se $z_1, \ldots, z_n \in \mathbb{C}$ mostrare che:
+	$$
+	|z_1 + \ldots + z_n| \leq |z_1| + \ldots + |z_n|
+	$$
+\end{enumerate}
+\begin{myproof}
+si procede per induzione sul numero di termini, osservando che per $n=1$ e $n=2$ è banalmente vero. Mostriamo che $n \implies n+1$:
+$$
+|z_1 + \ldots + z_n + z_{n+1}| = |\alpha + z_{n+1}|
+$$
+dove con $\alpha=z_1 + \ldots + z_n$. Siccome nell'ultimo valore assoluto abbiamo solamente "due" numeri, deve valere l'ipotesi induttiva, dunque:
+$$
+	|\alpha + z_{n+1}| \leq |\alpha| + |z_{n+1}| \stackrel{\text{ip. induttiva}}{\leq} |z_1| + \ldots + |z_{n+1}|
+$$
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Se $x, y$ sono complessi, mostrare che 
+	$$
+	||x|-|y|| \leq |x-y|
+	$$
+\end{enumerate}
+\begin{myproof} si osserva che $|x| = |x-y+y| \leq |x-y| + |y| \implies |x|-|y| \leq |x-y|$ ma ragionando similmente con $|y| = |y+x-x| \leq |x-y| + |x| \implies |y|-|x| \leq |x-y|$. Siccome i reali sono ordinati dovremo avere che $|y|>|x|$ oppure $|x|>|y|$ dunque abbiamo che $||x|-|y|| = |x|-|y|$ oppure $||x|-|y||=|y|-|x|$. In ogni caso abbiamo ottenuto in entrambi i casi una relazione dove $|x-y|$ maggiora entrambe le due espressioni, dunque:
+$$
+	||x|-|y|| \leq |x-y|
+$$
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Se $z \in \mathbb{C}$ è un numero complesso tale che $|z|=1$ (dunque $z\bar{z}=1$) calcolare
+	$$
+	|1+z|^2 + |1-z|^2
+	$$
+\end{enumerate}
+\begin{myproof}
+si osserva che, ponendo $z=a+bi$, $|1+z|^2 = (a+1)^2 + b^2$ mentre $|1-z|^2 = (1-a)^2 + b^2$, dunque
+$$
+	|1+z|^2 + |1-z|^2 = (a+1)^2 + b^2 + b^2 + (1-a)^2 = 2b^2 + (a+1)^2 + (a-1)^2 = 2a^2 + 2b^2 + 2 = 2|z|+2 = 4
+$$
+\end{myproof}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sotto quali condizioni è valida l'equazione nella disuguaglianza di Cauchy-Schwarz?
+\end{enumerate}
 \end{document}
