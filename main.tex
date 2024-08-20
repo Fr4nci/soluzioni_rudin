@@ -126,7 +126,7 @@
 	Supponiamo che $s, t \in \mathbb{Q}$ con $s \leq t$. Siccome $s$ e $t$ sono razionali, allora esisteranno $m, n, p, q \in \mathbb{Z}$ tali che $s = \frac{m}{n}$ e $t = \frac{p}{q}$. Dunque abbiamo che $s \leq t \iff mq \leq np$. Abbiamo che $b^s = (b^m)^{\frac{1}{n}}$ e $b^t = (b^p)^{\frac{1}{q}}$ e sappiamo che questi numeri identificano in maniera univoca, grazie al teorema 1.21, due distinti numeri reali (tranne nel caso in cui $s = t$). Si osserva che se $r_1 = (b^m)^{\frac{1}{n}} \implies (r_1)^{n} = b^m \implies (r_1)^{nq} = b^{mq} < b^{np} = (r_2)^{nq} \implies r_1 \leq r_2$  (prendere la radice non cambia la direzione della disuguaglianza siccome possiamo sfruttare l'identità $b^n - a^n = (b-a)\sum\limits_{i=1}^{n} b^{n-i} a^{i-1}$ e osservare che $b^n \geq a^n \iff b \geq a$) 
 \end{myproof}	
 	
-\noindent Se consideriamo $B(r)$ con $r$ razionale, allora si ha banalmente che $b^r \in B(r)$ e dev'essere l'estremo superiore: infatti, se consideriamo $t > r \implies b^t > b^r$, dunque $b^t > b^r \geq b^x \implies b^t > b^x \, \forall x: b^x \in B(r)$ dunque $t$ è un maggiorante di $B(r)$. Mostriamo che $\forall x < r: b^x$ non è un maggiorante: se per assurdo $\exists \alpha < r: b^\alpha$ è maggiorante, allora $\forall y \leq \alpha, y \leq \alpha < r \implies b^y \leq b^{\alpha} < b^r$ il che è assurdo siccome $r \in B(r)$ e abbiamo che $b^{\alpha} < b^r \leq b^{\alpha}$. \\
+\noindent Se consideriamo $B(r)$ con $r$ razionale, allora si ha banalmente che $b^r \in B(r)$ e dev'essere l'estremo superiore: infatti, se consideriamo $t > r \implies b^t > b^r$, dunque $b^t > b^r \geq b^x \implies b^t > b^x \, \forall x: b^x \in B(r)$ dunque $t$ è un maggiorante di $B(r)$. Mostriamo che $\forall b^x < b^r: b^x$ non è un maggiorante di $B(r)$: se per assurdo $\exists \alpha < b^r: \alpha$ è maggiorante, allora $\forall b^y \in B(r), b^y \leq \alpha < b^r$ il che è assurdo siccome $b^r \in B(r)$ e avremmo che $b^r \leq \alpha < b^r \implies b^r < b^r$. \\
 	Per mostrare la (d) si osserva che dobbiamo mostrare, per il punto precedente, che $\sup{B(x+y)} = \sup{B(x)}\sup{B(y)} = b^x b^y$. Per fare ciò faremo uso del seguente lemma
 	\mlenma{Unicità del $\sup$ e $\inf$}{Sia $A \subseteq \mathbb{R}$ un insieme non vuoto limitato superiormente (inferiormente). Allora $\sup{A}$ ($\inf{A}$) esiste ed è unico}
 	\begin{myproof}
@@ -201,5 +201,35 @@ allora dividendo membro a membro avremo che $b^{x' - x} = 1$ ma siccome $x' - x 
 	\end{enumerate}
 	ma allora se supponiamo che $i>0$ allora $i \cdot i > 0 \cdot i \implies -1 > 0$ ma questo contraddice completamente il fatto $1 > 0$ in un campo ordinato e dunque $-1 < 0$. Se invece $i < 0 \implies (-i) > 0 \implies (-i) \cdot (-i) > 0 \implies -1 > 0$ che è nuovamente assurdo. Naturalmente si è escluso il caso $i = 0$ per ragioni banali.
 \end{myproof}
-
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Supponiamo che $z=a+bi$ e $w=c+di$ e definiamo su di essi una relazione d'ordine tale che $z < w$ se $a < c$ e anche se $a=c$ ma $b < d$. Mostrare che questo trasforma l'insieme dei numeri complessi in un insieme ordinato. Questo ordine possiede anche la proprietà del $\sup$?
+\end{enumerate}
+\begin{myproof}
+Mostriamo che questa relazione d'ordine soddisfa le proprietà: dati due numeri complessi $z$ e $w$ si osserva che i numeri reali sono un campo ordinato, dunque avremo sempre che $a < c$ oppure $a > c$ oppure $a = c$ (nel primo caso avremo che $z < w$ e nel secondo caso $z > w$). L'unico caso non banale è $a = c$ che possiamo risolvere "guardando" le componenti immaginarie dei numeri complessi, che saranno a loro volta sempre dei numeri reali che, essendo ordinati, avremo sempre che $b<d$ oppure $b>d$ oppure $b=d$ (nel primo caso avremo $z < w$ e nel secondo $z > w$). Se $b=d$ allora si deve concludere che $z=w$: abbiamo quindi dimostrato che, dati due elementi $z, w \in \mathbb{C}$ vale sempre uno dei seguenti predicati:
+\begin{align*}
+	&z < w & &z=w & &z>w
+\end{align*}
+Adesso dobbiamo mostrare che se $z < w$ e $w < u$ allora $z < u$. Sia adesso $u = e+fi$ e sapendo che $z < w$ si pongono davanti a noi due possibilità:
+\begin{itemize}
+	\item $a < c$
+	\item $a = c \wedge b < d$ 
+\end{itemize}
+e ragionando similmente con $w < u$ dobbiamo concludere che ci sono due sole possibilità:
+\begin{itemize}
+	\item $c < e$
+	\item $c = e \wedge d < f$
+\end{itemize}
+e adesso guardiamo a tutte le possibili configurazioni (4 in totale):
+\begin{enumerate}
+	\item $a < c \wedge c < e \implies a < e \implies z < u$ (per la transitività della relazione d'ordine $<$)
+	\item $a < c \wedge (c=e \wedge b < d) \implies a < e \implies z<u$ (siccome $c=e$)
+	\item $(a=c \wedge b<d) \wedge (c < e) \implies a < e \implies z<u$ (siccome $a=c<e$)
+	\item $(a=c \wedge b<d) \wedge (c=e \wedge d<f) \implies b<d<f \implies b<f \implies z<u$ 
+\end{enumerate}
+Per mostrare che questo insieme non possiede la proprietà dell'estremo superiore, consideriamo l'insieme definito nella seguente maniera
+$$
+A = \{a+bi \in \mathbb{C}: a \leq 0 \}
+$$
+si osserva che tutti i numeri immaginari con parte reale positiva sono dei maggioranti dunque $A$ è limitato superiormente. Supponiamo per assurdo che $\exists C \in \mathbb{C}: C \geq x \, \forall x \in A$ allora questo implica necessariamente che $\text{Re}(C) > 0$ (altrimenti non potrebbe essere un maggiorante di ogni elemento dell'insieme A) ma si osserva che fallisce miseramente la proprietà caratterizzante del $\sup$ secondo cui $\forall x < C, x$ non è maggiorante siccome qualunque numero nella forma $\frac{\text{Re}(C)}{n} + bi$ con $n \in \mathbb{N}$ sarà minore di $C$ ma sarà un maggiorante di $A$.
+\end{myproof}
 \end{document}
