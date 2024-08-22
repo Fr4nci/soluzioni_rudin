@@ -342,13 +342,46 @@ siccome il prodotto scalare canonico di $\mathbb{R}^k$ è non degenere, dalla fo
 \end{mysolution}
 
 \chapter{Basic topology}
-Per affrontare alcuni esercizi di questo capitolo farò uso del seguente teorema
+Per affrontare alcuni esercizi di questo capitolo farò uso del seguente teorema presente nel libro (di cui comunque riporto la dimostrazione) per poter usufruire di una serie di lemmi molto utili:
 \thm{Unione contabile di insiemi contabili è contabile}{Sia $S$ una famiglia contabile di insiemi contabili $S_i$. Allora
 $$
 	\bigcup_i S_i
 $$
 è contabile
 }
+\begin{myproof} la dimostrazione si basa sul fatto è possibile che costruire una successione tale che $x_{nk} = s_k \in S_n$ ovvero "mappa" ogni $nk$ (non è un prodotto: il numero è composto dalle cifre di $n$ e le cifre di $k$ accostate) nel $k$-elemento dell'insieme $S_n$. In questa maniera possiamo vedere che: \\
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    		\matrix (m) [matrix of math nodes]
+    		{
+        		x_{11} & x_{12} & x_{13} & x_{14} & x_{15} & \cdots \\
+        		x_{21} & x_{22} & x_{23} & x_{24} & x_{25} & \cdots \\
+        		x_{31} & x_{32} & x_{33} & x_{34} & x_{35} & \cdots \\
+        		x_{41} & x_{42} & x_{43} & x_{44} & x_{45} & \cdots \\
+        		x_{51} & x_{52} & x_{53} & x_{54} & x_{55} & \cdots \\
+        		\vdots & \vdots & \vdots & \vdots & \vdots & \ddots \\
+    		};
+
+    		% Disegno delle diagonali
+    		\draw[red,thick, ->] (m-1-1.south west) -- (m-1-1.north east); % x_{11}
+    		\draw[red,thick, ->] (m-2-1.south west) -- (m-1-2.north east); % x_{21} -> x_{12}
+    		\draw[red,thick, ->] (m-3-1.south west) -- (m-1-3.north east); % x_{31} -> x_{13}
+    		\draw[red,thick, ->] (m-4-1.south west) -- (m-1-4.north east); % x_{41} -> x_{14}
+    		\draw[red,thick, ->] (m-5-1.south west) -- (m-1-5.north east); % x_{51} -> x_{15}
+    		\draw[red,thick, ->] (m-5-2.south west) -- (m-2-5.north east); % \vdots -> \cdots
+    		\draw[red, thick, ->] (m-5-3.south west) -- (m-3-5.north east);
+    		\draw[red, thick, ->] (m-5-4.south west) -- (m-4-5.north east);
+    		\draw[red, thick, ->] (m-5-5.south west) -- (m-5-5.north east);
+	\end{tikzpicture}
+	\caption{Gli elementi appartenenti all'elemento $S_i$ si trovano tutti disposti sulla riga $i$-esima}
+\end{figure}
+\noindent e dunque si osserva che possiamo "arrangiare" questi elementi in una sequenza del tipo
+$$
+x_{11}, x_{21}, x_{12}, x_{31}, \cdots
+$$
+e definire una funzione $f: \mathbb{N} \mapsto \bigcup\limits_i S_i$ tale che $1 \mapsto x_{11}$, $2 \mapsto x_{21}$, $3 \mapsto x_{12}$ e così via.
+\end{myproof}
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 	\item Mostrare che l'insieme vuoto è contenuto in ogni insieme
 \end{enumerate}
@@ -368,9 +401,20 @@ $$
 \end{enumerate}
 \nt{Nella soluzione mostrata qua sotto presento una soluzione senza usare il suggerimento qua presentato siccome non riuscivo a mostrare come fosse vero. Comunque l'idea di base rimane sempre la stessa, siccome non c'è bisogno di passare per $\mathbb{Z}^k$ e osservare che l'unione di tutti gli insiemi ${N \in \mathbb{N}: n + |a_0}| + \cdots + |a_n| = N$ prende ogni soluzione}
 \begin{mysolution}
-	identifichiamo ogni equation come $a = (a_0, \cdots , a_n) \in \mathbb{Z}^n$ con $a_k \in \mathbb{Z}$. Per un noto teorema della teoria sappiamo che \footnote{per mostrare l'equipotenza fra $\mathbb{N}$ e $\mathbb{Z}$ possiamo costruire la seguente funzione bigettiva: \begin{equation*}
+	identifichiamo ogni equation come $a = (a_0, \cdots , a_n) \in \mathbb{Z}^n$ con $a_k \in \mathbb{Z}$. Per un noto teorema della teoria sappiamo che\footnote{per mostrare l'equipotenza fra $\mathbb{N}$ e $\mathbb{Z}$ possiamo costruire la seguente funzione bigettiva: \begin{equation*}
 	f(n) = \begin{cases} \frac{n}{2} & \text{se } 2 \mid n \\ -\frac{n-1}{2} & \text{se } 2 \nmid n \end{cases}	
 \end{equation*}
-}$\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n$. Tuttavia sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione contabile di insiemi contabili dunque $\mathcal{A}$ è contabile.
+} $\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n$. Tuttavia sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione contabile di insiemi al più contabili dunque $\mathcal{A}$ è contabile.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Provare che esistono dei numeri reali che sono algebrici
+\end{enumerate}
+\begin{mysolution}
+	Si procede per assurdo, dunque neghiamo la nostra tesi (che è $\exists x \in \mathbb{R}: x$ non è algebrico) e supponiamola vera, ovvero $\forall x \in \mathbb{R}, x$ è algebrico. Ma allora risulta che $\mathbb{R} \subseteq \mathcal{A}$ dove $\mathcal{A}$ denota l'insieme dei numeri algebrici. Ma allora questo contraddice il teorema 2.8 (\emph{Ogni sottoinsieme infinito di un insieme contabile $A$ è contabile}). Dunque $\exists x \in \mathbb{R}: x$ non è algebrico.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item L'insieme dei numeri irrazionali è contabile?
+\end{enumerate}
+\begin{mysolution} No, infatti se supponiamo per assurdo che l'insieme dei numeri irrazionali, che denotiamo con $\mathbb{U}$, è contabile. Allora, siccome $\mathbb{Q}$ è contabile, si deve avere che $\mathbb{R} = \mathbb{Q} \cup \mathbb{U}$ è contabile (siccome unione di insiemi contabili) il che è assurdo.
 \end{mysolution}
 \end{document}
