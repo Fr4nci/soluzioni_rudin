@@ -340,4 +340,37 @@ ancora niente
 \begin{mysolution}
 siccome il prodotto scalare canonico di $\mathbb{R}^k$ è non degenere, dalla formula delle dimensioni del radicale possiamo considerare il sottospazio generato dal vettore $x$ che indichiamo con $U$ (che avrà dimensione $1$) e il radicale $U^{\perp}$ (che avrà dimensione $k-1$). Dunque, siccome $U^{\perp}$ è un sottospazio vettoriale, esiste sicuramente un elemento $y$ tale che $x \cdot y = 0$.
 \end{mysolution}
+
+\chapter{Basic topology}
+Per affrontare alcuni esercizi di questo capitolo farò uso del seguente teorema
+\thm{Unione contabile di insiemi contabili è contabile}{Sia $S$ una famiglia contabile di insiemi contabili $S_i$. Allora
+$$
+	\bigcup_i S_i
+$$
+è contabile
+}
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+	\item Mostrare che l'insieme vuoto è contenuto in ogni insieme
+\end{enumerate}
+\begin{mysolution}
+	possiamo effettuare due dimostrazioni di questo fatto: una costruttiva e una per assurdo. Procediamo con la prima: per definizione, se $\emptyset \subset A$ allora $\forall x, x \in \emptyset \implies x \in A$ ma siccome, per definizione dell'insieme vuoto\footnote{gli assiomi ZFC affermano che esiste un insieme $A$ (che denotiamo con $\emptyset$) che soddisfa la proprietà $\forall x, x \not\in A$}, $x \not\in \emptyset$ allora la proposizione $x \in \emptyset$ è falsa ma la proposizione $x \in A$ è vera per ogni $x \in A$ e per le tabelle di verità dell'implicazione concludiamo che l'implicazione $x \in \emptyset \implies x \in A$ è vera, dunque $\emptyset \subset A$. \\
+	Procediamo adesso per assurdo: supponiamo invece che $\emptyset \not\subset A$, ovvero $\exists x, x \in \emptyset \wedge x \not\in A$, ma questo è assurdo siccome, per definizione di insieme vuoto, non esiste un elemento che appartiene all'insieme.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Un numero complesso è detto \emph{algebrico} se esistono degli interi $a_0, \cdots , a_n$ non tutti nulli tali che
+	$$
+		a_0z^n + a_1 z^{n-1} + \cdots + a_{n-1}z + a_n = 0
+	$$
+	Mostrare che l'insieme dei numeri algebrici è contabile. \textit{Suggerimento}: per ogni intero positivo $N$ esistono solo un numero finito di equazioni con
+	$$
+		n + |a_0| + |a_1| + \cdots + |a_n| = N
+	$$
+\end{enumerate}
+\nt{Nella soluzione mostrata qua sotto presento una soluzione senza usare il suggerimento qua presentato siccome non riuscivo a mostrare come fosse vero. Comunque l'idea di base rimane sempre la stessa, siccome non c'è bisogno di passare per $\mathbb{Z}^k$ e osservare che l'unione di tutti gli insiemi ${N \in \mathbb{N}: n + |a_0}| + \cdots + |a_n| = N$ prende ogni soluzione}
+\begin{mysolution}
+	identifichiamo ogni equation come $a = (a_0, \cdots , a_n) \in \mathbb{Z}^n$ con $a_k \in \mathbb{Z}$. Per un noto teorema della teoria sappiamo che \footnote{per mostrare l'equipotenza fra $\mathbb{N}$ e $\mathbb{Z}$ possiamo costruire la seguente funzione bigettiva: \begin{equation*}
+	f(n) = \begin{cases} \frac{n}{2} & \text{se } 2 \mid n \\ -\frac{n-1}{2} & \text{se } 2 \nmid n \end{cases}	
+\end{equation*}
+}$\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n$. Tuttavia sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione contabile di insiemi contabili dunque $\mathcal{A}$ è contabile.
+\end{mysolution}
 \end{document}
