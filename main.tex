@@ -417,4 +417,20 @@ e definire una funzione $f: \mathbb{N} \mapsto \bigcup\limits_i S_i$ tale che $1
 \end{enumerate}
 \begin{mysolution} No, infatti se supponiamo per assurdo che l'insieme dei numeri irrazionali, che denotiamo con $\mathbb{U}$, è contabile. Allora, siccome $\mathbb{Q}$ è contabile, si deve avere che $\mathbb{R} = \mathbb{Q} \cup \mathbb{U}$ è contabile (siccome unione di insiemi contabili) il che è assurdo.
 \end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Costruire un insieme dei numeri limitato con esattamente 3 punti limite
+\end{enumerate}
+\begin{mysolution}
+	Consideriamo l'insieme dei numeri nella forma $a+\frac{1}{n}$ dove $a \in {1,2,3}$ e $n \in \mathbb{N}_{\geq 1}$, che è banalmente limitato (si ha che $|x| < 5$). Inoltre si osserva che gli unici punti limite sono $\{ 1, 2, 3 \}$: infatti si osserva che i punti appartenenti all'insieme $\{ 1, 2, 3 \} $ rispettano la definizione $\forall \varepsilon > 0: \exists \tilde{N} > 0: d(a + \frac{1}{N}, a) < \varepsilon$. Per mostrare ciò, fissiamo $\tilde{N} > 0$ e notiamo che $|a + \frac{1}{N} - a| = |\frac{1}{N}| = \frac{1}{N}$ e se vogliamo rendere questa quantità minore di $\varepsilon$ si deve avere che $\frac{1}{N} < \varepsilon \implies N > \frac{1}{\varepsilon}$. Mostriamo adesso che non esistono altri punti limite: ponendo $x \in \mathbb{R} \setminus \{ 1, 2, 3 \}$ si osserva che se $x \not\in (1, 2] \cup (2, 3] \cup (3, 4]$ allora per $r>0$ (sufficientemente piccolo) $N_r(x) \cap (1, 2] \cup (2, 3] \cup (3, 4] = \emptyset$, mentre se $x \in (m, m+1], m \in \{1, 2, 3\}$ allora si osserva che possiamo definire $y=x-m \implies 0<y \leq 1 \implies \exists k \in \mathbb{N}: \frac{1}{k+1} < y \leq \frac{1}{k}$ dunque si distinguono due casi: se $y=\frac{1}{k}$ allora possiamo scegliere
+	\begin{equation*}
+		r = \begin{cases} \min{(\frac{1}{k} - \frac{1}{k+1}, \frac{1}{k} - \frac{1}{k-1})}	 & \text{se } k \geq 2 \\ 
+		\frac{1}{2} & \text{se } k=1		
+		\end{cases}
+	\end{equation*}
+altrimenti se $\frac{1}{k+1} < y < \frac{1}{k}$ allora possiamo scegliere $r$ nella seguente maniera:
+	\begin{equation*}
+		r = \min{(\frac{1}{k} - y, y-\frac{1}{k+1})}
+	\end{equation*}
+	e osservare che se per esempio $r = \frac{1}{k} - y$ allora abbiamo che $d(x, m + \frac{1}{k}) = |x - m - \frac{1}{k}| = |y - \frac{1}{k}| > r$ dunque $x$ è un punto isolato.
+\end{mysolution}
 \end{document}
