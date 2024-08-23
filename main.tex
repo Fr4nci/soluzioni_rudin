@@ -382,6 +382,12 @@ x_{11}, x_{21}, x_{12}, x_{31}, \cdots
 $$
 e definire una funzione $f: \mathbb{N} \mapsto \bigcup\limits_i S_i$ tale che $1 \mapsto x_{11}$, $2 \mapsto x_{21}$, $3 \mapsto x_{12}$ e così via.
 \end{myproof}
+\thm{Proprietà della chiusura di un insieme}{Siano $E$ e $F$ due insiemi, allora $\overline{E \cup F} = \bar{E} \cup \bar{F}$}
+\begin{myproof}
+Per mostrare questo fatto, possiamo far vedere che $(E \cup F)' = E' \cup F'$ (infatti a quel punto sappiamo che $\overline{E \cup F} = (E \cup F) \cup (E \cup F)' = E \cup F \cup E' \cup F' = \bar{E} \cup \bar{F}$). \\
+Mostriamo che $E' \cup F' \subseteq (E \cup F)'$: per fare ciò si osserva che $x$ è punto limite di $E' \cup F'$ allora questo vuol dire che o $x \in E'$ oppure $x \in F'$ e, facendo la dimostrazione nel caso di $x \in E'$, si deduce $\forall r > 0, \exists x' \in E \setminus \{x \} : d(x, x') < r$ ma a maggior ragione, siccome $E \subseteq E \cup F$, si dovrà avere che $\forall r > 0, \exists x' \in (E \cup F) \setminus x: d(x, x') < r$. Dunque $E' \cup F' \subseteq (E \cup F)'$. \\
+Per mostrare che $(E \cup F)' \subseteq E' \cup F'$ vogliamo mostrare che $\forall x, x \in (E \cup F)' \implies x \in E' \cup F'$ e per mostrare questo possiamo anche far vedere la contronominale, ovvero che se $x \not\in E' \cup F' \implies x \not\in (E \cup F)'$: siccome $x \not\in E' \cup F'$ allora vuol dire che $\exists r>0: \forall y \in E: d(x, y) > r$ e $\exists  s >0: \forall y \in F: d(x, y) > s$ e, dunque, ponendo $t = \min{r,s }$ abbiamo che tutti gli elementi di $E \cup F$ soddisfa la seguente proposizione $d(x, y) > t$.
+\end{myproof}
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 	\item Mostrare che l'insieme vuoto è contenuto in ogni insieme
 \end{enumerate}
@@ -423,14 +429,43 @@ e definire una funzione $f: \mathbb{N} \mapsto \bigcup\limits_i S_i$ tale che $1
 \begin{mysolution}
 	Consideriamo l'insieme dei numeri nella forma $a+\frac{1}{n}$ dove $a \in {1,2,3}$ e $n \in \mathbb{N}_{\geq 1}$, che è banalmente limitato (si ha che $|x| < 5$). Inoltre si osserva che gli unici punti limite sono $\{ 1, 2, 3 \}$: infatti si osserva che i punti appartenenti all'insieme $\{ 1, 2, 3 \} $ rispettano la definizione $\forall \varepsilon > 0: \exists \tilde{N} > 0: d(a + \frac{1}{N}, a) < \varepsilon$. Per mostrare ciò, fissiamo $\tilde{N} > 0$ e notiamo che $|a + \frac{1}{N} - a| = |\frac{1}{N}| = \frac{1}{N}$ e se vogliamo rendere questa quantità minore di $\varepsilon$ si deve avere che $\frac{1}{N} < \varepsilon \implies N > \frac{1}{\varepsilon}$. Mostriamo adesso che non esistono altri punti limite: ponendo $x \in \mathbb{R} \setminus \{ 1, 2, 3 \}$ si osserva che se $x \not\in (1, 2] \cup (2, 3] \cup (3, 4]$ allora per $r>0$ (sufficientemente piccolo) $N_r(x) \cap (1, 2] \cup (2, 3] \cup (3, 4] = \emptyset$, mentre se $x \in (m, m+1], m \in \{1, 2, 3\}$ allora si osserva che possiamo definire $y=x-m \implies 0<y \leq 1 \implies \exists k \in \mathbb{N}: \frac{1}{k+1} < y \leq \frac{1}{k}$ dunque si distinguono due casi: se $y=\frac{1}{k}$ allora possiamo scegliere
 	\begin{equation*}
-		r = \begin{cases} \min{(\frac{1}{k} - \frac{1}{k+1}, \frac{1}{k} - \frac{1}{k-1})}	 & \text{se } k \geq 2 \\ 
+		r = \begin{cases} \min{ \left( \frac{1}{k} - \frac{1}{k+1}, \frac{1}{k} - \frac{1}{k-1} \right)}	 & \text{se } k \geq 2 \\ 
 		\frac{1}{2} & \text{se } k=1		
 		\end{cases}
 	\end{equation*}
 altrimenti se $\frac{1}{k+1} < y < \frac{1}{k}$ allora possiamo scegliere $r$ nella seguente maniera:
 	\begin{equation*}
-		r = \min{(\frac{1}{k} - y, y-\frac{1}{k+1})}
+		r = \min{\left( \frac{1}{k} - y, y-\frac{1}{k+1} \right)}
 	\end{equation*}
-	e osservare che se per esempio $r = \frac{1}{k} - y$ allora abbiamo che $d(x, m + \frac{1}{k}) = |x - m - \frac{1}{k}| = |y - \frac{1}{k}| > r$ dunque $x$ è un punto isolato.
+	e osservare che se per esempio $r = \frac{1}{k} - y$ (ovvero l'elemento più "vicino" a $x$ è $m + \frac{1}{k}$) allora abbiamo che $d(x, m + \frac{1}{k}) = |x - m - \frac{1}{k}| = |y - \frac{1}{k}| > r$ dunque $x$ è un punto isolato.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia $E'$ l'insieme di tutti i punti limite di un insieme $E$. Mostrare che $E'$ è chiuso. Mostrare che $E$ e $\bar{E}$ hanno gli stessi punti limite (si ricordi che $\bar{E} = E \cup E'$). $E$ e $E'$ hanno gli stessi punti limite?
+\end{enumerate}
+\begin{mysolution}
+	Per far vedere che $E'$ sia chiuso dobbiamo far vedere ogni punto limite di $E'$ appartiene all'insieme $E'$. Fissiamo $\varepsilon > 0$ e sia $x_0 \in (E')'$ (ovvero sia $x_0$ un punto limite di $E'$): per definizione, sappiamo che $x_0$ è un punto limite di $E'$, dunque $\forall \frac{\varepsilon}{2} > 0$ esiste sicuramente un $x \in E'$ tale che $d(x_0, x) < \frac{\varepsilon}{2}$, ma siccome $x$ è un punto limite di $E$ abbiamo che esiste sicuramente un $x' \in E$ tale che $d(x, x') < \frac{\varepsilon}{2}$ dunque:
+	$$
+		d(x', x_0) \stackrel{\text{dis. triangolare}}{\leq} d(x', x) + d(x, x_0) \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+	$$
+	Dunque abbiamo mostrato che $x_0$, punto limite di $E'$, è un punto limite di $E$ dunque, per come è definito $E'$, si ha che $x_0 \in E'$. \\
+	Mostriamo adesso che $\bar{E}$ e $E$ hanno gli stessi punti limite: si osserva che $\bar{E} = E \cup E'$. Per fare ciò mostreremo che $E' \subseteq (\bar{E})'$ e $(\bar{E})' \subseteq E'$. Per adesso mostriamo che $(\bar{E})' \subseteq E'$: sia adesso $x \in (\bar{E})'$, dobbiamo mostrare che $x \in E'$. Per fare ciò si osserva che, siccome $x \in (\bar{E})' \implies \forall \varepsilon > 0 \exists x' \in \bar{E}: d(x, x') < \varepsilon$ e distinguiamo adesso due casi:
+	\begin{itemize}
+		\item $x' \in E$ e in tal caso abbiamo finito, siccome $d(x, x') < \varepsilon \implies x$ è punto limite di $E$
+		\item $x' \not\in E$ dunque $x \in E'$, ma allora per definizione sappiamo che $\forall \varepsilon > 0 \, \exists x_0 \in E: d(x_0, x') < \varepsilon$ ma allora $d(x, x_0) \leq d(x, x') + d(x', x_0) < 2\varepsilon$ 	 
+	\end{itemize}
+	Per mostrare che $E' \subseteq (\bar{E})'$ si osserva che, fissato $\varepsilon > 0$ se $x \in E' \implies \exists x' \in E: d(x, x') < \varepsilon$ ma, siccome $\bar{E}=E \cap E'$, a maggior ragione dovremo dire che $\exists x' \in \bar{E}: d(x, x') < \varepsilon$. \\
+	Possiamo dunque concludere che $E' = (\bar{E})'$. Per la parte finale dell'esercizio basta prendere un insieme del tipo $A = \{a+\frac{1}{n}: n \in \mathbb{N}\}$ con $a \in \{1, 2, 3 \}$ e si osserva che $A' = \{1, 2, 3\}$ ma $(A')' = \emptyset$, concludendo che $E$ e $E'$ non hanno sempre gli stessi punti limite.
+	
+\nt{Per mostrare che $(\bar{E})' \subseteq E'$ potevamo anche procedere per assurdo: supponiamo che $\exists x \in (\bar{E})': x \not\in E'$ il che implica che $\exists r > 0: \not\exists x' \in E, x' \in N_r(x)$ e, siccome $E'$ è chiuso, allora si deve andare avere che $x$ non sia un punto limite di $E'$ (essere chiusi vuol dire che ogni punto limite appartiene all'insieme). Quindi deve esistere un intorno di $x$ che non contenga punti appartenenti a $E$ (contraddirebbe il fatto che $x$ non sia un punto limite di $E$) e $E'$ (contraddirebbe il fatto che $x$ non possa essere conseguentemente un punto limite di $E'$)}
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia $A_1, \ldots, A_n$ un sottoinsieme di uno spazio metrico
+	\begin{enumerate}
+		\item Se $B_n = \bigcup\limits_{i=1}^n A_i$ mostrare che $\bar{B_n} = \bigcup\limits_{i=1}^n \bar{A_i}$
+		\item Se $B = \bigcup\limits_{i=1}^{+\infty} A_i$ mostrare che $\bar{B} \supseteq \bigcup\limits_{i=1}^{+\infty} \bar{A_i}$
+	\end{enumerate}
+\end{enumerate}
+\begin{mysolution}
+	per mostrare $(a)$ bisogna mostrare che $\bar{B_n} \subseteq \bigcup\limits_{i=1}^n \bar{A_i}$ e $\bigcup\limits_{i=1}^n \bar{A_i} \subseteq \bar{B_n}$. Si osserva che se $x \in \bar{B_n}$ implica che $x \in B_n \cup (B_n)'$ 
 \end{mysolution}
 \end{document}
