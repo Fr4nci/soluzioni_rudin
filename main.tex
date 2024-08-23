@@ -343,11 +343,11 @@ siccome il prodotto scalare canonico di $\mathbb{R}^k$ è non degenere, dalla fo
 
 \chapter{Basic topology}
 Per affrontare alcuni esercizi di questo capitolo farò uso del seguente teorema presente nel libro (di cui comunque riporto la dimostrazione) per poter usufruire di una serie di lemmi molto utili:
-\thm{Unione contabile di insiemi contabili è contabile}{Sia $S$ una famiglia contabile di insiemi contabili $S_i$. Allora
+\thm{Unione numerabile di insiemi numerabili è numerabile}{Sia $S$ una famiglia numerabile di insiemi numerabili $S_i$. Allora
 $$
 	\bigcup_i S_i
 $$
-è contabile
+è numerabile
 }
 \begin{myproof} la dimostrazione si basa sul fatto è possibile che costruire una successione tale che $x_{nk} = s_k \in S_n$ ovvero "mappa" ogni $nk$ (non è un prodotto: il numero è composto dalle cifre di $n$ e le cifre di $k$ accostate) nel $k$-elemento dell'insieme $S_n$. In questa maniera possiamo vedere che: \\
 \begin{figure}[H]
@@ -382,11 +382,27 @@ x_{11}, x_{21}, x_{12}, x_{31}, \cdots
 $$
 e definire una funzione $f: \mathbb{N} \mapsto \bigcup\limits_i S_i$ tale che $1 \mapsto x_{11}$, $2 \mapsto x_{21}$, $3 \mapsto x_{12}$ e così via.
 \end{myproof}
-\thm{Proprietà della chiusura di un insieme}{Siano $E$ e $F$ due insiemi, allora $\overline{E \cup F} = \bar{E} \cup \bar{F}$}
+\thm{$\mathbb{Z}[x]$ è equipotente a $\mathbb{N}$}{$\mathbb{N} \sim \mathbb{Z}[x]$}
 \begin{myproof}
-Per mostrare questo fatto, possiamo far vedere che $(E \cup F)' = E' \cup F'$ (infatti a quel punto sappiamo che $\overline{E \cup F} = (E \cup F) \cup (E \cup F)' = E \cup F \cup E' \cup F' = \bar{E} \cup \bar{F}$). \\
-Mostriamo che $E' \cup F' \subseteq (E \cup F)'$: per fare ciò si osserva che $x$ è punto limite di $E' \cup F'$ allora questo vuol dire che o $x \in E'$ oppure $x \in F'$ e, facendo la dimostrazione nel caso di $x \in E'$, si deduce $\forall r > 0, \exists x' \in E \setminus \{x \} : d(x, x') < r$ ma a maggior ragione, siccome $E \subseteq E \cup F$, si dovrà avere che $\forall r > 0, \exists x' \in (E \cup F) \setminus x: d(x, x') < r$. Dunque $E' \cup F' \subseteq (E \cup F)'$. \\
-Per mostrare che $(E \cup F)' \subseteq E' \cup F'$ vogliamo mostrare che $\forall x, x \in (E \cup F)' \implies x \in E' \cup F'$ e per mostrare questo possiamo anche far vedere la contronominale, ovvero che se $x \not\in E' \cup F' \implies x \not\in (E \cup F)'$: siccome $x \not\in E' \cup F'$ allora vuol dire che $\exists r>0: \forall y \in E: d(x, y) > r$ e $\exists  s >0: \forall y \in F: d(x, y) > s$ e, dunque, ponendo $t = \min{r,s }$ abbiamo che tutti gli elementi di $E \cup F$ soddisfa la seguente proposizione $d(x, y) > t$.
+	sia $a \in \mathbb{Z}[x]$, ovvero un polinomio a coefficienti interi. Possiamo innanzitutto definire una funzione $p: \mathbb{N} \mapsto Q$ dove $Q \subset N$ è l'insieme dei numeri primi (che comunque è un insieme infinito, ma non daremo dimostrazione di ciò). Definendo $P_n = \{a \in \mathbb{Z}[x]: \deg{a} \leq n \}$ Possiamo quindi definire una mappa tale che
+	$$
+	f(a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0) = 2^{a_0}3^{a_1} \cdots p(n+1)^{a_n}
+	$$
+e il teorema fondamentale dell'aritmetica ci assicura che la fattorizzazione di ogni numero è unica. Definiamo a questo punto
+$$
+	P = \bigcup_{n=0}^{+\infty} P_n
+$$
+e si tratta di un'unione numerabile di insiemi numerabili, dunque numerabile per il teorema 2.1 (di questo documento). 
+\end{myproof}
+\nt{Un'altra possibile dimostrazione riguarda il fatto che ogni polinomio di grado $n$ è identificato univocamente dai suoi coefficienti (in virtù del principio di uguaglianza fra polinomi) e dunque $\forall p \in \mathbb{Z}[x], \deg{p} \leq n$ possiamo definire una mappa $f: \mathbb{Z}_{\leq n}[x] \mapsto Z^n$ che associa ad ogni polinomio il vettore $n$-esimo delle sue coordinate e per "generare" tutto $P$ è necessario considerare l'unione infinita (ma numerabile) degli $\mathbb{Z}^n$ che sarà ancora numerabile siccome unione numerabile di insiemi numerabili.}
+\thm{Chiusura "distributiva" rispetto all'unione}{Siano $E$ e $F$ due insiemi, allora $(E \cup F)' = E' \cup F'$}
+\begin{myproof}
+mostriamo che $E' \cup F' \subseteq (E \cup F)'$: per fare ciò si osserva che $x$ è punto limite di $E' \cup F'$ allora questo vuol dire che o $x \in E'$ oppure $x \in F'$ e, facendo la dimostrazione nel caso di $x \in E'$, si deduce $\forall r > 0, \exists x' \in E \setminus \{x \} : d(x, x') < r$ ma a maggior ragione, siccome $E \subseteq E \cup F$, si dovrà avere che $\forall r > 0, \exists x' \in (E \cup F) \setminus x: d(x, x') < r$. Dunque $E' \cup F' \subseteq (E \cup F)'$. \\
+Per mostrare che $(E \cup F)' \subseteq E' \cup F'$ vogliamo mostrare che $\forall x, x \in (E \cup F)' \implies x \in E' \cup F'$ e per mostrare questo possiamo anche far vedere la contronominale, ovvero che se $x \not\in E' \cup F' \implies x \not\in (E \cup F)'$: siccome $x \not\in E' \cup F'$ allora vuol dire che $\exists r>0: \forall y \in E: d(x, y) > r$ e $\exists  s >0: \forall y \in F: d(x, y) > s$ e, dunque, ponendo $t = \min{(r,s )}$ abbiamo che tutti gli elementi di $E \cup F$ soddisfa la seguente proposizione $d(x, y) > t$.
+\end{myproof}
+\cor{Proprietà della chiusura di un insieme}{Siano $E$ e $F$ due insiemi, allora $\overline{E \cup F} = \bar{E} \cup \bar{F}$}
+\begin{myproof}
+possiamo facilmente vedere che $\overline{E \cup F} = (E \cup F) \cup (E \cup F)' = E \cup F \cup E' \cup F' = \bar{E} \cup \bar{F}$.
 \end{myproof}
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 	\item Mostrare che l'insieme vuoto è contenuto in ogni insieme
@@ -400,28 +416,28 @@ Per mostrare che $(E \cup F)' \subseteq E' \cup F'$ vogliamo mostrare che $\fora
 	$$
 		a_0z^n + a_1 z^{n-1} + \cdots + a_{n-1}z + a_n = 0
 	$$
-	Mostrare che l'insieme dei numeri algebrici è contabile. \textit{Suggerimento}: per ogni intero positivo $N$ esistono solo un numero finito di equazioni con
+	Mostrare che l'insieme dei numeri algebrici è numerabile. \textit{Suggerimento}: per ogni intero positivo $N$ esistono solo un numero finito di equazioni con
 	$$
 		n + |a_0| + |a_1| + \cdots + |a_n| = N
 	$$
 \end{enumerate}
 \nt{Nella soluzione mostrata qua sotto presento una soluzione senza usare il suggerimento qua presentato siccome non riuscivo a mostrare come fosse vero. Comunque l'idea di base rimane sempre la stessa, siccome non c'è bisogno di passare per $\mathbb{Z}^k$ e osservare che l'unione di tutti gli insiemi ${N \in \mathbb{N}: n + |a_0}| + \cdots + |a_n| = N$ prende ogni soluzione}
 \begin{mysolution}
-	identifichiamo ogni equation come $a = (a_0, \cdots , a_n) \in \mathbb{Z}^n$ con $a_k \in \mathbb{Z}$. Per un noto teorema della teoria sappiamo che\footnote{per mostrare l'equipotenza fra $\mathbb{N}$ e $\mathbb{Z}$ possiamo costruire la seguente funzione bigettiva: \begin{equation*}
+	identifichiamo ogni equazione di grado $n$ come $a = (a_0, \cdots , a_n) \in \mathbb{Z}^n$ con $a_k \in \mathbb{Z}$ e, dunque, in virtù del principio di identità di polinomi ogni equazione è identificata univocamente. Per un noto teorema della teoria sappiamo che\footnote{per mostrare l'equipotenza fra $\mathbb{N}$ e $\mathbb{Z}$ possiamo costruire la seguente funzione bigettiva: \begin{equation*}
 	f(n) = \begin{cases} \frac{n}{2} & \text{se } 2 \mid n \\ -\frac{n-1}{2} & \text{se } 2 \nmid n \end{cases}	
 \end{equation*}
-} $\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n$. Tuttavia sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione contabile di insiemi al più contabili dunque $\mathcal{A}$ è contabile.
+} $\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n \sim \mathbb{Z}[x]$ (sopra abbiamo mostrato che $\mathbb{Z}[x] \sim \mathbb{Z}^n$) dunque $N \sim \mathbb{Z}[x]$. Sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione numerabile (siccome i polinomi $p$ sono in "numero" numerabili) di insiemi al più numerabili dunque $\mathcal{A}$ è numerabile.
 \end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Provare che esistono dei numeri reali che sono algebrici
 \end{enumerate}
 \begin{mysolution}
-	Si procede per assurdo, dunque neghiamo la nostra tesi (che è $\exists x \in \mathbb{R}: x$ non è algebrico) e supponiamola vera, ovvero $\forall x \in \mathbb{R}, x$ è algebrico. Ma allora risulta che $\mathbb{R} \subseteq \mathcal{A}$ dove $\mathcal{A}$ denota l'insieme dei numeri algebrici. Ma allora questo contraddice il teorema 2.8 (\emph{Ogni sottoinsieme infinito di un insieme contabile $A$ è contabile}). Dunque $\exists x \in \mathbb{R}: x$ non è algebrico.
+	Si procede per assurdo, dunque neghiamo la nostra tesi (che è $\exists x \in \mathbb{R}: x$ non è algebrico) e supponiamola vera, ovvero $\forall x \in \mathbb{R}, x$ è algebrico. Ma allora risulta che $\mathbb{R} \subseteq \mathcal{A}$ dove $\mathcal{A}$ denota l'insieme dei numeri algebrici. Ma allora questo contraddice il teorema 2.8 (\emph{Ogni sottoinsieme infinito di un insieme numerabile $A$ è numerabile}). Dunque $\exists x \in \mathbb{R}: x$ non è algebrico.
 \end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
-	\item L'insieme dei numeri irrazionali è contabile?
+	\item L'insieme dei numeri irrazionali è numerabile?
 \end{enumerate}
-\begin{mysolution} No, infatti se supponiamo per assurdo che l'insieme dei numeri irrazionali, che denotiamo con $\mathbb{U}$, è contabile. Allora, siccome $\mathbb{Q}$ è contabile, si deve avere che $\mathbb{R} = \mathbb{Q} \cup \mathbb{U}$ è contabile (siccome unione di insiemi contabili) il che è assurdo.
+\begin{mysolution} No, infatti se supponiamo per assurdo che l'insieme dei numeri irrazionali, che denotiamo con $\mathbb{U}$, è numerabile. Allora, siccome $\mathbb{Q}$ è numerabile, si deve avere che $\mathbb{R} = \mathbb{Q} \cup \mathbb{U}$ è numerabile (siccome unione di insiemi numerabili) il che è assurdo.
 \end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
 	\item Costruire un insieme dei numeri limitato con esattamente 3 punti limite
@@ -466,6 +482,18 @@ altrimenti se $\frac{1}{k+1} < y < \frac{1}{k}$ allora possiamo scegliere $r$ ne
 	\end{enumerate}
 \end{enumerate}
 \begin{mysolution}
-	per mostrare $(a)$ bisogna mostrare che $\bar{B_n} \subseteq \bigcup\limits_{i=1}^n \bar{A_i}$ e $\bigcup\limits_{i=1}^n \bar{A_i} \subseteq \bar{B_n}$. Si osserva che se $x \in \bar{B_n}$ implica che $x \in B_n \cup (B_n)'$ 
+	Per mostrare la (a) basta mostrare questo facile corollario ottenuto dal teorema 2.2 (di questo documento):
+	\cor{Chiusura dell'unione finita di insiemi}{Sia $$\mathcal{A} = \{A_i: i \in \{1,2, \cdots n \}\}$$ e sia $B_n=\bigcup_{i=0}^{n} A_i$, allora
+$$
+	\bar{B_n} = \bigcup_{i=1}^{n} \bar{A_i}
+$$}
+\begin{myproof}
+	Procediamo per induzione, osservando che il teorema precedente  assicura la validità del caso $n=2$ e mostriamo adesso che $n \implies n+1$:
+	$$
+		\overline{B_{n+1}} = \overline{\bigcup_{i=1}^n A_i} = \overline{A_{n+1} \cup \bigcup_{i=1}^n A_i} = \bar{A_{n+1}} \cup \overline{\bigcup_{i=1}^n A_i} \stackrel{\text{ip. induttiva}}{=} \bar{A_{n+1}} \cup \bigcup_{i=1}^{n} \bar{A_i} = \bigcup_{i=1}^{n+1} \bar{A_i}
+	$$
+\end{myproof}
+\noindent Questo conclude la parte (a). \\
+Per quanto riguarda la (b) sappiamo che 
 \end{mysolution}
 \end{document}
