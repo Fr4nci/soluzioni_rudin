@@ -494,6 +494,49 @@ $$}
 	$$
 \end{myproof}
 \noindent Questo conclude la parte (a). \\
-Per quanto riguarda la (b) sappiamo che 
+Per quanto riguarda la (b) possiamo anche mostrare un semplice esempio di questo fatto, siccome abbiamo che $B \supseteq A_i \, \forall i \implies \bar{B} \supseteq \overline{A_i}$ (siccome $A_i \subseteq B \implies (A_i)' \subseteq B' \implies \bar{A_i} = A_i \cup A_i'\subseteq B \cup B' = \bar{B}$), dunque:
+$$
+	\bar{B} \supseteq \bigcup_{i=1}^{+\infty} \bar{A_i}
+$$
+Se $A_i = r_i$ dove $\{ r_1, \cdots \}$ è un'enumerazione dei numeri razionali, allora $B$ è l'insieme dei numeri razionali. Tuttavia $\bar{B}=\mathbb{R}$ e $\bar{A}_i = A_i \, \forall i$ dunque $B = \bigcup\limits_{i=1}^{+\infty} \bar{A}_i$ è sempre l'insieme dei numeri razionali
 \end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Ogni punto di ogni insieme aperto $E \subseteq \mathbb{R}^2$ è un punto limite di $E$? Rispondere alla stessa domanda per gli insiemi chiusi in $\mathbb{R}^2$
+\end{enumerate}
+\begin{mysolution}
+	Si osserva che se $x \in E$ allora $\exists r > 0: \exists x' \in (N_r(x) \setminus x) \cap E$ dove $N_r(x)$ rappresenta un intorno di raggio $r$ di $x$. Se $r' \geq r \implies N_r(x) \subset N_r'(x)$ tuttavia se $r' < r$ si può mostrare che esistono infiniti punti: infatti se contenesse punti in un numero finito, allora dovremmo avere che $\delta = \min_{i}{d(x, x_i)} \implies N_{\delta}(x) \subseteq N_{r}(x) \subseteq E$ ma $N_{\delta}(x)$ contiene solamente $x$, dunque siccome ogni intervallo contiene infiniti punti, abbiamo che esistono infiniti intorno di $x$ non vuoti (questo vale solamente in $\mathbb{R}$ o in spazi topologici $T_1$). \\
+	Per quanto riguarda gli insiemi chiusi, basti vedere che considerando un insieme finito sappiamo che questo è chiuso (siccome unione di elementi, che di fatto sono insiemi chiusi) eppure ogni punto non è un punto limite.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia $E^{\circ}$ l'insieme di tutti i punti di E
+	\begin{enumerate}
+		\item Mostrare che $E^{\circ}$ è sempre aperto
+		\item Provare che $E$ è aperto se e solo se $E = E^{\circ}$
+		\item Se $G \subseteq E$ e $G$ è aperto allora $G \subseteq E^{\circ}$
+		\item Provare che il complemento di $E^{\circ}$ è la chiusura del complemento di $E$
+		\item $E$ e $\bar{E}$ hanno lo stesso insieme di punti interni?
+		\item $E$ e $E^{\circ}$ hanno sempre la stessa chiusura?
+	\end{enumerate}
+\end{enumerate}
+\begin{mysolution}
+Per provare (a) si osserva che se $x \in E^{\circ}$ allora $\exists r > 0: \exists y \in E: d(x, y) < r$. Allora, siccome gli intorni di $r$ sono aperti, allora si deve avere che $\forall z \in N_r \exists s > 0: N_s(z) \subseteq N_r(x)$ ma allora $N_s \subseteq N_r \subset E$ dunque anche $y \in E^{\circ}$ ma allora questo vuol dire che $N_r \subseteq E^{\circ}$ (per vederlo in maniera esplicita basta considerare $z \in N_s \implies d(z, y) < s$ e ponendo $s = r - d(x,y)$ abbiamo che $d(x, z) < d(x, y) + d(y, z) < r \implies d(x, z) < r$ dunque $z \in E$ per definizione di intorno, ma questo vuol dire che ogni intorno di $y \in N_r$ è contenuto dentro $N_r \subseteq E^{\circ}$ dunque $E^{\circ}$. \\
+Per provare (b) si osserva che se $E^{\circ}$ allora $p \in E^{\circ}$ è un punto interno, ma allora $p \in E \implies E^{\circ} \subseteq E$. Se $p \in E$ e $E$ aperto allora $\exists r>0: N_r(p) \subseteq E \implies p \in E^{\circ}$. Dunque se $E$ aperto allora $E=E^{\circ}$. Per l'implicazione opposta si osserva che se $E^{\circ} = E$ ogni punto di $E$ è interno (siccome punto di $E^{\circ}$) dunque $\exists r>0: N_r(p) \subseteq E$. \\
+Per provare (c) si osserva che che se $G$ aperto allora $\forall x \in G^{\circ} \, \exists r > 0: N_r(x) \subseteq G \subseteq E \implies x \in E^{\circ}$, ma $G=G^{\circ}$ dunque $G \subseteq E^{\circ}$. \\
+Per provare la (d) si deve mostrare che $(E^{\circ})^c = \overline{E^c}$. Mostriamo innanzitutto che $(E^{\circ})^c \subseteq \bar{E}^c$: sia $x \in (E^{\circ})^c$ dunque abbiamo sicuramente che $x$ non sia un punto interno di $E$ (infatti, anche se ovvio, in tal caso apparterebbe a $E$) ma questo implica necessariamente che\footnote{negando la seguente proposizione $\exists r > 0: N_r(x) \subseteq E$, osservando che è possibile "spaccare" il simbolo $\subseteq$ scrivendo che $N_r(x) \subseteq E = x \in N_r(x) \implies x \in E$, si ottiene $\forall r > 0: q \in N_r(x) \wedge q \not\in E$} $\forall r > 0: q \in N_r(x) \wedge q \not\in E$ e dunque si ottiene che $p$ è un punto limite di $E^c$ ma allora si ha che $p \in \overline{E^c}$. Mostriamo adesso che $\overline{E^c} \subseteq (E^{\circ})^{c}$, osservando che se $p \in \overline{E^c}$ allora abbiamo che $p \in E^c \cup (E^c)'$ e distinguiamo due casi:
+\begin{itemize}
+	\item se $p \in E^c$ allora sicuramente abbiamo che $p \not\in E$ e, a maggior ragione, $p \not\in E^{\circ} \implies p \in (E^{\circ})^c$. 
+	\item se $p$ è un punto limite di $(E^c)$, ovvero $p \in (E^c)'$, allora abbiamo che $\forall r > 0 \, \exists q \in E^c: q \in N_r(p) \wedge q \in E^c$ ma allora abbiamo che $q \in (E^{\circ})^c$ e $p$ è un punto limite di $(E^{\circ})^c$ ma siccome $E^{\circ}$ è aperto allora $(E^{\circ})^c$ è chiuso e quindi ogni suo punto limite è un elemento dell'insieme dunque $p \in (E^{\circ})^c$.
+\end{itemize}
+Dunque concludiamo che $(E^{\circ})^c = \overline{E^c}$. \\
+Per provare la (e), si mostra un semplice esempio: consideriamo $E = \mathbb{Q}$ e si osserva che $\bar{E} = \mathbb{R}$. Dunque si osserva che $E^{\circ} = \emptyset$ (il fatto è che, per come si definiscono le palle, non possiamo garantire che tutti gli elementi intorni a un numero razionale sia costituito esclusivamente da numeri razionali, siccome ci dovranno essere necessariamente dei numeri irrazionali nel mezzo, pertanto si deve avere che questo è vuoto). Tuttavia se consideriamo la chiusura di $E$, abbiamo che $\bar{E}^{\circ} = \mathbb{R}$. \\
+Per gli altri 2 punti sto cercando ancora dei controesempi.
+\end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Sia $X$ un insieme infinito. Definiamo la funzione $d(p, q)$ nella seguente maniera:
+	\begin{equation*}
+		d(p, q) = \begin{cases}	1 & \text{se } p \neq q \\
+		0 & \text{se } p = q	\end{cases}
+	\end{equation*}
+	e mostrare che questa è una metrica. Quali sono gli insiemi aperti? Quali sono quelli chiusi? Quali quelli compatti?
+\end{enumerate}
 \end{document}
