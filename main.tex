@@ -467,9 +467,9 @@ altrimenti se $\frac{1}{k+1} < y < \frac{1}{k}$ allora possiamo scegliere $r$ ne
 	Mostriamo adesso che $\bar{E}$ e $E$ hanno gli stessi punti limite: si osserva che $\bar{E} = E \cup E'$. Per fare ciò mostreremo che $E' \subseteq (\bar{E})'$ e $(\bar{E})' \subseteq E'$. Per adesso mostriamo che $(\bar{E})' \subseteq E'$: sia adesso $x \in (\bar{E})'$, dobbiamo mostrare che $x \in E'$. Per fare ciò si osserva che, siccome $x \in (\bar{E})' \implies \forall \varepsilon > 0 \exists x' \in \bar{E}: d(x, x') < \varepsilon$ e distinguiamo adesso due casi:
 	\begin{itemize}
 		\item $x' \in E$ e in tal caso abbiamo finito, siccome $d(x, x') < \varepsilon \implies x$ è punto limite di $E$
-		\item $x' \not\in E$ dunque $x \in E'$, ma allora per definizione sappiamo che $\forall \varepsilon > 0 \, \exists x_0 \in E: d(x_0, x') < \varepsilon$ ma allora $d(x, x_0) \leq d(x, x') + d(x', x_0) < 2\varepsilon$ 	 
+		\item $x' \not\in E$ dunque $x \in E'$, ma allora per definizione sappiamo che $\forall \varepsilon > 0 \, \exists x_0 \in E: d(x_0, x') < \varepsilon$ dunque fissiamo $\varepsilon' = \varepsilon - d(x_0, x')$ ma allora $d(x, x_0) \stackrel{\text{dis. triang.}}{\leq} d(x, x') + d(x', x_0) < d(x_0, x') + \varepsilon - d(x_0, x') = \varepsilon \implies d(x, x_0) < \varepsilon$ 	 
 	\end{itemize}
-	Per mostrare che $E' \subseteq (\bar{E})'$ si osserva che, fissato $\varepsilon > 0$ se $x \in E' \implies \exists x' \in E: d(x, x') < \varepsilon$ ma, siccome $\bar{E}=E \cap E'$, a maggior ragione dovremo dire che $\exists x' \in \bar{E}: d(x, x') < \varepsilon$. \\
+	Per mostrare che $E' \subseteq (\bar{E})'$ si osserva che, fissato $\varepsilon > 0$ se $x \in E' \implies \exists x' \in E: d(x, x') < \varepsilon$ ma, siccome $\bar{E}=E \cup E'$, a maggior ragione dovremo dire che $\exists x' \in \bar{E}: d(x, x') < \varepsilon$. \\
 	Possiamo dunque concludere che $E' = (\bar{E})'$. Per la parte finale dell'esercizio basta prendere un insieme del tipo $A = \{a+\frac{1}{n}: n \in \mathbb{N}\}$ con $a \in \{1, 2, 3 \}$ e si osserva che $A' = \{1, 2, 3\}$ ma $(A')' = \emptyset$, concludendo che $E$ e $E'$ non hanno sempre gli stessi punti limite.
 	
 \nt{Per mostrare che $(\bar{E})' \subseteq E'$ potevamo anche procedere per assurdo: supponiamo che $\exists x \in (\bar{E})': x \not\in E'$ il che implica che $\exists r > 0: \not\exists x' \in E, x' \in N_r(x)$ e, siccome $E'$ è chiuso, allora si deve andare avere che $x$ non sia un punto limite di $E'$ (essere chiusi vuol dire che ogni punto limite appartiene all'insieme). Quindi deve esistere un intorno di $x$ che non contenga punti appartenenti a $E$ (contraddirebbe il fatto che $x$ non sia un punto limite di $E$) e $E'$ (contraddirebbe il fatto che $x$ non possa essere conseguentemente un punto limite di $E'$)}
@@ -539,4 +539,17 @@ Per gli altri 2 punti sto cercando ancora dei controesempi.
 	\end{equation*}
 	e mostrare che questa è una metrica. Quali sono gli insiemi aperti? Quali sono quelli chiusi? Quali quelli compatti?
 \end{enumerate}
+\begin{mysolution}
+Osserviamo che una funzione distanza è definita tale se sussistono le seguenti 3 proprietà:
+\begin{itemize}
+	\item $d(p, q) > 0 \, \text{se } p \neq q; d(p, p) = 0$
+	\item $d(p, q) = d(q, p)$
+	\item $d(p, q) \leq d(p, r) + d(r, q) \, \text{for any } r \in X$
+\end{itemize}
+si osserva che per come è definita la metrica abbiamo banalmente che $d(p, q) \geq 0 \, \forall p, q \in X$ e abbiamo che $d(p, q) = 0 \iff p=q$, dunque la prima condizione è rispettata. Inoltre si vede altrettanto banalmente che $d(p, q) = d(q,p)$. \\
+Per quanto riguarda la disuguaglianza triangolare, si osserva che se $p = q \implies d(p, q) = 0 \leq d(p, r) + d(r, q) \, \forall r \in X$ (anche se $r = p = q$ avremo che $0 \leq 0$). Se $p \neq q$ allora avremo che $d(p, q) = 1$ ma $d(p, r) + d(r, q) \geq d(p, q)$, infatti se $r = p \vee r = q$ avremo che $1 \geq d(p, q) = 1$ altrimenti $d(p, r) + d(q, r) = 2 > d(p, q)$. \\
+Gli insiemi aperti sono tutti quelli non vuoti: per vedere ciò si osserva che se $r < 1$ allora l'insieme $\{x\}$ con $x \in X$ è aperto siccome $N_r(x) = {p \in X: d(x, q) < r} \subseteq {x}$ e ogni insieme non vuoto può essere ottenuto come unione di insiemi non vuoti, dunque saranno aperti. \\
+Tuttavia si osserva che se $E$ è aperto allora $E^c$ è chiuso e siccome $X$ è un insieme infinito, se $E \subset X$ (sottoinsieme proprio) allora $E^c \neq \emptyset$ e dunque sarà aperto e chiuso. Ma allora $E = (E^c)^c$ sarà un insieme chiuso. Dunque abbiamo concluso che ogni insieme è aperto e chiuso. \\
+Per quanto riguarda gli insiemi compatti, si osserva che ogni insieme è compatto, siccome $\{ x \} \subseteq N_r(x)$ con $r \geq 1$ e dunque ogni insieme finito sarà compatto perché unione di compatti. Per gli insiemi infiniti non è così perché se consideriamo gli $N_r(x)$ come ricoprimento allora questi non potrebbero essere in numero finito siccome ogni sottoricoprimento è in numero infinito siccome contiene sempre un solo punto.
+\end{mysolution}
 \end{document}
