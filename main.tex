@@ -429,7 +429,7 @@ possiamo facilmente vedere che $\overline{E \cup F} = (E \cup F) \cup (E \cup F)
 } $\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Z}^n \sim \mathbb{Z}[x]$ (sopra abbiamo mostrato che $\mathbb{Z}[x] \sim \mathbb{Z}^n$) dunque $N \sim \mathbb{Z}[x]$. Sappiamo che ogni equazione possiede al massimo $n$ soluzioni, dunque possiamo definire per ogni polinomio (che identifichiamo con $a$) $p$ l'insieme $R_p$ delle radici associate che sarà dunque finito. Dunque definiamo $$\mathcal{A} = \bigcup_{a \in \mathbb{Z}^k} R_a$$ ma si tratta di un'unione numerabile (siccome i polinomi $p$ sono in "numero" numerabili) di insiemi al più numerabili dunque $\mathcal{A}$ è numerabile.
 \end{mysolution}
 \begin{enumerate}[resume, label=\protect\circled{\arabic*}]
-	\item Provare che esistono dei numeri reali che sono algebrici
+	\item Provare che esistono dei numeri reali che non sono algebrici
 \end{enumerate}
 \begin{mysolution}
 	Si procede per assurdo, dunque neghiamo la nostra tesi (che è $\exists x \in \mathbb{R}: x$ non è algebrico) e supponiamola vera, ovvero $\forall x \in \mathbb{R}, x$ è algebrico. Ma allora risulta che $\mathbb{R} \subseteq \mathcal{A}$ dove $\mathcal{A}$ denota l'insieme dei numeri algebrici. Ma allora questo contraddice il teorema 2.8 (\emph{Ogni sottoinsieme infinito di un insieme numerabile $A$ è numerabile}). Dunque $\exists x \in \mathbb{R}: x$ non è algebrico.
@@ -552,4 +552,52 @@ Gli insiemi aperti sono tutti quelli non vuoti: per vedere ciò si osserva che s
 Tuttavia si osserva che se $E$ è aperto allora $E^c$ è chiuso e siccome $X$ è un insieme infinito, se $E \subset X$ (sottoinsieme proprio) allora $E^c \neq \emptyset$ e dunque sarà aperto e chiuso. Ma allora $E = (E^c)^c$ sarà un insieme chiuso. Dunque abbiamo concluso che ogni insieme è aperto e chiuso. \\
 Per quanto riguarda gli insiemi compatti, si osserva che ogni insieme è compatto, siccome $\{ x \} \subseteq N_r(x)$ con $r \geq 1$ e dunque ogni insieme finito sarà compatto perché unione di compatti. Per gli insiemi infiniti non è così perché se consideriamo gli $N_r(x)$ come ricoprimento allora questi non potrebbero essere in numero finito siccome ogni sottoricoprimento è in numero infinito siccome contiene sempre un solo punto.
 \end{mysolution}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Per $x \in \mathbb{R}^1, y \in \mathbb{R}^1$, definire
+	\begin{align*}
+		&d_1(x, y) = (x-y)^2 \\
+		&d_2(x, y) = \sqrt{|x-y|} \\
+		&d_3(x, y) = |x^2 - y^2| \\
+		&d_4(x, y) = |x - 2y| \\
+		&d_5(x, y) = \frac{|x-y|}{1+|x-y|}
+	\end{align*}
+	Determinare se ognuna di queste rappresentano una \emph{metrica} oppure no
+\end{enumerate}
+\begin{mysolution}
+Si osserva che $d_1(x, y)$ non rappresenta una metrica siccome $(x-y)^2$ non rispetta la disuguaglianza triangolare (basta osservare che $$d_1(0, 1) + d_1(1, 2) = 2 < 4 = d_1(0, 2) $$ e dunque $d_1$ non è una metrica). Per quanto riguarda $d_2(x, y)$ si osserva che valgono sempre le prime due proprietà e la disuguaglianza triangolare segue dal fatto che $\sqrt{|x-y|} \stackrel{\text{dis. triangolare}}{\leq} \sqrt{|x-z| + |z-y|} \stackrel{\text{subadditività della radice quadrata}}{\leq} \sqrt{|x-z|} + \sqrt{|z-y|}$. \\
+Per quanto riguarda la terza, si osserva che cade la prima proprietà siccome $|x^2-y^2| = 0 \iff x^2 - y^2 = 0 \iff x = \pm y$. Per la terza metrica stessa cosa, infatti abbiamo che $|x-2y| = 0 \iff x-2y = 0 \iff x = 2y$. La quarta metrica rispetta le prime due proprietà, infatti
+$$
+\frac{|x-y|}{1 + |x-y|} \leq \frac{|x-z|}{1+|x-z|} + \frac{|z-y|}{1 + |z-y|}
+$$
+e per mostrare questo si introduce la notazione $a = |x-y|, b = |x-z|, c = |z-y|$ e si osserva che possiamo ridurci a mostrare un qualcosa di più semplice con qualche manipolazione algebrica:
+\begin{align*}
+	&\frac{a}{1+a} \leq \frac{b}{1+b} + \frac{c}{1+c} \implies a(1+c)(1+b) \leq b(1+a)(1+c) + c(1+a)(1+b) \implies \\ &\implies a + ab + ac + abc \leq ab + ac + abc + b + c + ac + ab + abc = b+c+2ab+2ac+2abc
+\end{align*}
+ma siccome $a\leq b + c$ si ottiene con una banale disuguaglianza la tesi osservando il lato sinistro
+$$
+a + ab + ac + abc \leq b + c + ab + ac + abc \leq b+c+2ab+2ac+2abc
+$$
+dunque la tesi.
+\end{mysolution}
+\nt{Il procedimento che abbiamo utilizzato per mostrare che la metrica $d_4$ è effettivamente una metrica è valido per un qualunque spazio metrico, ovvero potremmo mostrare il seguente fatto
+\ntqt{Se $(X,d)$ è uno spazio metrico, allora $\rho(x, y) = \frac{d(x,y)}{1+d(x,y)}$ è una metrica su $X$}
+}
+Questo esercizio qua è il 2.16, aggiungerò anche i rimanenti più in là.
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item Consideriamo $\mathbb{Q}$, ovvero l'insieme dei numeri razionali, come uno spazio metrico, introducendo la distanza $d(x, y)= |x-y|$. Sia $E \subset \mathbb{Q}$ l'insieme di tutti $p \in \mathbb{Q}$ tali che $2 < p^2 < 3$. Mostrare che $E$ è chiuso e limitato in $\mathbb{Q}$ ma $E$ non è compatto. E' $E$ aperto su $\mathbb{Q}$?
+\end{enumerate}
+\begin{mysolution}
+	Che $E$ sia limitato segue dal fatto che se $p^2 < 3 \implies p < \sqrt{3}$ e $p > \sqrt{2}$. Per quanto riguarda che sia chiuso, possiamo mostrare che $E^c$ è aperto il che implica che $E$ sia chiuso. \\
+	Mostriamo che se $p^2 \geq 2$ allora esiste un intorno di $p$ per cui $N_r(p) \subseteq E$: sia $y \in N_r(p)$ allora $y = p+h$ e scegliamo $|h| < r=\min\{\sqrt{\frac{2-p^2}{3}}, \frac{2-p^2}{3|p|}\}$\footnote{ragazzi se a colpo d'occhio queste stime non vi sembrano intuitive è normale, perché vengono fuori con i calcoli. Riprovate a fare la dimostrazione senza di essere e vedrete che verranno "fuori" da sole se non volete tirare fuori dei radicali brutti brutti}, dunque $$
+(p+h)^2 = p^2 + 2hp + h^2 < p^2 + 2r |p| + r^2 = p^2 + \frac{2}{3} |p| \frac{2-p^2}{|p|} + \frac{2-p^2}{3} = p^2 + \frac{4}{3} - \frac{2}{3}p^2 + \frac{2}{3} - \frac{1}{3}p^2 = 2	
+$$
+concludendo che $\forall y, y \in N_r(p) \implies y \in E \implies N_r(p) \subset E$. Possiamo fare la stessa cosa supponendo che $p^2 > 3$ e osserva che se $y \in N_r(p)$ allora possiamo sempre scrivere $y=x+h$ con $|h| < r=\frac{x^2-3}{2|x|}$, dunque
+$$
+(x+h) = x^2 + 2hx + h^2 > x^2 + 2hx > x^2 - 2 r |x| = 3
+$$
+\noindent Possiamo mostrare che $E$ non è compatto, infatti se per assurdo $E \subset \mathbb{Q}$ fosse compatto, allora avremo che, per il teorema $2.32$ del Rudin, $E$ è anche compatto rispetto a $\mathbb{R}$ ma ciò contraddice il fatto che $E$ non è chiuso rispetto a $\mathbb{R}$ e dunque nemmeno compatto. \\
+	In ogni caso, anche $E$ è aperto, siccome possiamo ragionare come prima mostrando che esiste sempre un intorno contenuto propriamente in $E \, \forall x \in E$.
+\end{mysolution}
+\nt{L'idea di questo esercizio, che può essere paradossale, è il fatto che i buchi lasciati dal fatto che i numeri irrazionali non sono presenti rendono certi insiemi, che in $\mathbb{R}$ sono aperti, come chiusi. La seguente osservazione può essere utile}
+\nt{Tutti i punti limite dell'intervallo $E = (\sqrt{2}, \sqrt{3}) \subset \mathbb{Q}$ appartengono a quell'intervallo. Supponiamo per assurdo che esista un punto limite $p \not\in E$ e, supponiamo senza perdere di generalità che $p^2 < 2 \implies p < \sqrt{2}$, dunque $\exists r: p+r < \sqrt{2}$ e questo implicherebbe l'esistenza di un intorno $N(p) \not\subset E$. A questo punto potevamo concludere che $E$ era chiuso siccome $E = [\sqrt{2}, \sqrt{3}] \cap \mathbb{Q} = (\sqrt{2}, \sqrt{3}) \cap \mathbb{Q}$ e quindi $E$ risulta essere aperto e chiuso contemporaneamente per il teorema 2.30 del Rudin}
 \end{document}

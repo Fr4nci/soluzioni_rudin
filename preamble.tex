@@ -803,8 +803,28 @@
     coltitle={black},
     fonttitle={\large\bfseries},
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTEQUOTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{notequote}[1][]{%
+    after={\par\smallskip\noindent},
+    colback=gray!20!white,
+    grow to right by=-10mm,
+    grow to left by=-10mm, 
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    boxrule=0pt,
+    boxsep=0pt,
+    borderline west={0.5pt}{0pt}{black},
+    colbacktitle={gray!20!white},
+    coltitle={gray!20!white},
+    fonttitle={\large\bfseries},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\qte}[1]{\begin{zitat} #1 \end{zitat}}
-
+\newcommand{\ntqt}[1]{\begin{notequote} #1 \end{notequote}}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % LSTLISTINGS COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%
