@@ -605,13 +605,27 @@ Questo esercizio qua è il 2.16, aggiungerò anche i rimanenti più in là.
 	Mostriamo che se $p^2 \geq 2$ allora esiste un intorno di $p$ per cui $N_r(p) \subseteq E$: sia $y \in N_r(p)$ allora $y = p+h$ e scegliamo $|h| < r=\min\{\sqrt{\frac{2-p^2}{3}}, \frac{2-p^2}{3|p|}\}$\footnote{ragazzi se a colpo d'occhio queste stime non vi sembrano intuitive è normale, perché vengono fuori con i calcoli. Riprovate a fare la dimostrazione senza di essere e vedrete che verranno "fuori" da sole se non volete tirare fuori dei radicali brutti brutti}, dunque $$
 (p+h)^2 = p^2 + 2hp + h^2 < p^2 + 2r |p| + r^2 = p^2 + \frac{2}{3} |p| \frac{2-p^2}{|p|} + \frac{2-p^2}{3} = p^2 + \frac{4}{3} - \frac{2}{3}p^2 + \frac{2}{3} - \frac{1}{3}p^2 = 2	
 $$
-concludendo che $\forall y, y \in N_r(p) \implies y \in E \implies N_r(p) \subset E$. Possiamo fare la stessa cosa supponendo che $p^2 > 3$ e osserva che se $y \in N_r(p)$ allora possiamo sempre scrivere $y=x+h$ con $|h| < r=\frac{x^2-3}{2|x|}$, dunque
+concludendo che $\forall y, y \in N_r(p) \implies y \in E^c \implies N_r(p) \subset E^c$. Possiamo fare la stessa cosa supponendo che $p^2 > 3$ e osserva che se $y \in N_r(p)$ allora possiamo sempre scrivere $y=x+h$ con $|h| < r=\frac{x^2-3}{2|x|}$, dunque
 $$
 (x+h) = x^2 + 2hx + h^2 > x^2 + 2hx > x^2 - 2 r |x| = 3
 $$
 \noindent Possiamo mostrare che $E$ non è compatto, infatti se per assurdo $E \subset \mathbb{Q}$ fosse compatto, allora avremo che, per il teorema $2.32$ del Rudin, $E$ è anche compatto rispetto a $\mathbb{R}$ ma ciò contraddice il fatto che $E$ non è chiuso rispetto a $\mathbb{R}$ e dunque nemmeno compatto. \\
-	In ogni caso, anche $E$ è aperto, siccome possiamo ragionare come prima mostrando che esiste sempre un intorno contenuto propriamente in $E \, \forall x \in E$.
+	In ogni caso, anche $E$ è aperto, siccome possiamo ragionare come prima mostrando che esiste sempre $\forall x$ un intorno contenuto propriamente in $E$.
 \end{mysolution}
 \nt{L'idea di questo esercizio, che può essere paradossale, è il fatto che i buchi lasciati dal fatto che i numeri irrazionali non sono presenti rendono certi insiemi, che in $\mathbb{R}$ sono aperti, come chiusi. La seguente osservazione può essere utile}
 \nt{Tutti i punti limite dell'intervallo $E = (\sqrt{2}, \sqrt{3}) \subset \mathbb{Q}$ appartengono a quell'intervallo. Supponiamo per assurdo che esista un punto limite $p \not\in E$ e, supponiamo senza perdere di generalità che $p^2 < 2 \implies p < \sqrt{2}$, dunque $\exists r: p+r < \sqrt{2}$ e questo implicherebbe l'esistenza di un intorno $N(p) \not\subset E$. A questo punto potevamo concludere che $E$ era chiuso siccome $E = [\sqrt{2}, \sqrt{3}] \cap \mathbb{Q} = (\sqrt{2}, \sqrt{3}) \cap \mathbb{Q}$ e quindi $E$ risulta essere aperto e chiuso contemporaneamente per il teorema 2.30 del Rudin}
+\begin{enumerate}[resume, label=\protect\circled{\arabic*}]
+	\item \begin{enumerate}
+		\item Se $A$ e $B$ sono insiemi disgiunti in qualche spazio metrico $X$, mostrare che sono separati.
+		\item Mostrare lo stesso per insiemi aperti
+		\item Fissato $p \in X, \delta > 0$ definire $A$ come l'insieme di tutti $q \in X$ per cui $d(p, q) < \delta$ e definire similmente $B$ usando $>$ invece di $<$. Mostrare che sono separati.
+		\item Mostrare che ogni spazio metrico connesso con almeno due punti non è numerabile.
+	\end{enumerate}
+\end{enumerate}
+\begin{mysolution}
+Per mostrare la $(a)$ si osserva banalmente che se $A \cap B = \emptyset$ ma siccome $A, B$ sono chiusi allora $\bar{B} = B$ dunque $A \cap B = A \cap \bar{B} = \emptyset = \bar{A} \cap B$. \\
+Per mostrare la $(b)$ si osserva che se $A \cap B = \emptyset$ ma noi sappiamo che allora $X \setminus B$ è chiuso e siccome $A \subseteq X \setminus B$ allora per il teorema 2.27 del Rudin $\bar{A} \subseteq X \setminus B$ dunque $\bar{A} \cap B = \emptyset$. Similmente $B \subseteq X \setminus A \implies \bar{B} \subseteq X \setminus A \implies \bar{B} \cap A = \emptyset$. \\
+Per mostrare la $(c)$ si osserva che i due insiemi sono disgiunti, dunque separati per la $(a)$. \\
+Per mostrare la $(d)$ si osserva che preso il punto $x \in X$ e $y \in X$ con $x \neq y$ consideriamo $d = d(x, y) > 0$ (siccome $x \neq y$). Dunque $\forall \delta \in (0, d)$ possiamo considerare la palla $B_\delta = \{ z \in X : d(z, x) < \delta \}$ e dunque possiamo definire una corrispondenza biunivoca di fra l'intervallo $[0, d]$ e $X$ dunque $X$ non è numerabile.
+\end{mysolution}
 \end{document}
